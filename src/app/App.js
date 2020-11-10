@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Container className="App">
         <Header className="App-header"></Header>
-        <Content>
+        <Content className="App-content">
           <Switch>
             {routes.map((route, i) => {
               return <RouteWithSubRoutes key={i} {...route} />;

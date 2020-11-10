@@ -54,5 +54,12 @@ const SidebarItemContainer = styled(Link)`
   }
 
   &:hover {
+    background: #f5f8fa;
+
+    svg {
+      path {
+        fill: #4284fc;
+      }
+    }
   }
 `;

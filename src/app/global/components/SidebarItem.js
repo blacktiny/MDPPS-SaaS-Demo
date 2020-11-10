@@ -4,13 +4,14 @@ import styled from 'styled-components';
 
 function SidebarItem(props) {
   const { item: {
-    name, pathname, Icon
+    name, pathname, isNew, Icon
   }, isActive } = props;
 
   return (
     <SidebarItemContainer className={'row Sidebar_item ' + (isActive ? 'active' : '')} to={pathname}>
       <Icon />
       <ItemName>{name}</ItemName>
+      {isNew && <NewBadge />}
     </SidebarItemContainer>
   );
 }
@@ -25,6 +26,7 @@ const ItemName = styled.div`
 `;
 
 const SidebarItemContainer = styled(Link)`
+  position: relative;
   width: 100%;
   height: 50px;
   padding: 15px 0 15px 26px;
@@ -62,4 +64,13 @@ const SidebarItemContainer = styled(Link)`
       }
     }
   }
+`;
+
+const NewBadge = styled.div`
+  position: absolute;
+  right: 15px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff872f;
 `;

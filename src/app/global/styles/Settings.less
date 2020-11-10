@@ -20,12 +20,22 @@ p {
 
   &-sidebar {
     background-color: #ffffff;
-    border-radius: 2px;
+    border-radius: 5px;
+
+    a:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+
+    a:last-child {
+      border-radius: 0 0 5px 5px;
+    }
   }
 
   &-content {
-    margin-left: 30px;
     width: calc(100% - 290px);
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 5px;
   }
 }
 

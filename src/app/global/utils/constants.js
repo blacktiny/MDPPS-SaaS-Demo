@@ -29,6 +29,7 @@ export const SettingsItems = [
     id: 'business',
     name: 'Business Verification',
     pathname: '/',
+    isNew: true,
     Icon: SettingsBusiness
   },
   {

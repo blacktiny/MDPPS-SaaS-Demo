@@ -4,7 +4,6 @@ import { Container, Header, Content, Sidebar } from 'rsuite';
 import RouteWithSubRoutes from '../../global/components/RouteWithSubRoutes';
 import SettingsSidebar from './SettingsSidebar';
 import { Settings as SettingsIcon } from '../../assets/icons';
-import '../../global/styles/Settings.less';
 import { SettingsItems } from '../../global/utils/constants'
 
 function Settings(props) {
@@ -24,7 +23,7 @@ function Settings(props) {
         <SettingsIcon />
         <p className="Group-name">Settings</p>
         &nbsp; | &nbsp;
-        <div><p>{curSettingItem?.name}</p></div>
+        <h4>{curSettingItem?.name}</h4>
       </Header>
 
       <Container>

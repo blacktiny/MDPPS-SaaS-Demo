@@ -1,24 +1,51 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Grid, Row, Col, Content, Container, Header } from 'rsuite';
 import CompanyBGImgURL from '../../assets/images/company_background.svg';
 import CompanyAvatarURL from '../../assets/images/company_FASS.png';
+import { Camera, PreviewProfile } from '../../assets/icons';
 
 function Company() {
 
   return (
-    <SettingsCompany>
+    <div className="Settings-company">
       <CompanyBackgroundImage imgURL={CompanyBGImgURL} />
-      <AvatarContainer>
-        <CompanyAvatar src={CompanyAvatarURL} alt="avatar" />
-      </AvatarContainer>
-    </SettingsCompany>
+      <div className="Background-change-btn">
+        <Camera />
+      </div>
+      
+      <Container className="Profile-container company">
+        <Header className="row Profile-header">
+          <div className="Avatar-container">
+            <img className="Avatar-img" src={CompanyAvatarURL} alt="avatar" />
+            <div className="Avatar-change-btn">
+              <Camera />
+            </div>
+          </div>
+          <div className="col Right-side">
+            <div className="Profile-name">FASS Diesel Performance Products, Inc.</div>
+            <div className="row Preview-profile">
+              <Link to={'/'} className="Preview-profile-link">Preview profile</Link>
+              <PreviewProfile />
+            </div>
+          </div>
+        </Header>
+
+        <Content className="Profile-content">
+          <Grid fluid>
+            <Row>
+              <Col xs={16} xsPull={4} xsPush={4}>
+              </Col>
+            </Row>
+          </Grid>
+        </Content>
+      </Container>
+    </div>
   );
 }
 
 export default Company;
-
-const SettingsCompany = styled.div`
-`;
 
 const CompanyBackgroundImage = styled.div`
   position: relative;
@@ -39,24 +66,4 @@ const CompanyBackgroundImage = styled.div`
     height: 86px;
     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-`;
-
-const AvatarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 115px;
-  position: absolute;
-  background: #ffffff;
-  margin: -60px 0 0 145px;
-  border-radius: 20px;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  z-index: 2;
-`;
-
-const CompanyAvatar = styled.img`
-  width: 100px;
-  height: 100%;
-  object-fit: contain;
 `;

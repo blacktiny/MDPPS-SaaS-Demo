@@ -4,7 +4,6 @@ import { Container, Header, Content } from 'rsuite';
 import RouteWithSubRoutes from './global/components/RouteWithSubRoutes';
 import routes from './global/utils/Routes';
 import 'rsuite/lib/styles/index.less';
-import './global/styles/globalStyle.less';
 import './global/styles/App.less';
 
 function App() {

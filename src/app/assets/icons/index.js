@@ -9,3 +9,5 @@ export { default as SettingsTeam } from './SettingsTeam';
 export { default as SettingsBilling } from './SettingsBilling';
 export { default as SettingsNotifications } from './SettingsNotifications';
 export { default as SettingsSecurity } from './SettingsSecurity';
+export { default as PreviewProfile } from './PreviewProfile';
+export { default as Camera } from './Camera';

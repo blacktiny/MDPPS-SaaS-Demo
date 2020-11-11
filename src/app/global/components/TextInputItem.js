@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Input } from 'rsuite';
+import { Container, Content, Footer, Header, Input } from 'rsuite';
 
 function TextInputItem(props) {
   const {
@@ -49,35 +49,40 @@ function TextInputItem(props) {
   }, [required, value])
 
   return (
-    <div className="Input-item">
-      <div className="Input-item-title">
+    <Container className="Input-item">
+      <Header className="Input-item-title">
         {title}
         {required && <span className="required">&nbsp;*</span>}
-      </div>
+      </Header>
 
-      <div
-        className={
-          "Input-item-container " + (isValid ? (isFocused ? 'focus ' : '') : 'error ') + (disabled ? 'disabled' : '')
-        }
-        ref={eleRef}
-      >
-        {inputPrefixEle}
-        <Input
-          type={type}
-          style={customStyle}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChanged}
-          disabled={disabled}
-          onFocus={handleInputFocus}
-          onBlur={handleInputBlur}
-        />
-        {inputSuffixEle}
-      </div>
-      {extraContent}
-      {!isValid && <p className="Input-item-error">{errorMsg}</p>}
-      {(isFocused && tooltip) && <div className={"Input-item-tooltip " + tooltipAlign}>{tooltip}</div>}
-    </div>
+      <Content>
+        <div
+          className={
+            "Input-item-container " + (isValid ? (isFocused ? 'focus ' : '') : 'error ') + (disabled ? 'disabled' : '')
+          }
+          ref={eleRef}
+        >
+          {inputPrefixEle}
+          <Input
+            type={type}
+            style={customStyle}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChanged}
+            disabled={disabled}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+          />
+          {inputSuffixEle}
+        </div>
+       {extraContent}
+      </Content>
+
+      <Footer>
+        {!isValid && <p className="Input-item-error">{errorMsg}</p>}
+        {(isFocused && tooltip) && <div className={"Input-item-tooltip " + tooltipAlign}>{tooltip}</div>}
+      </Footer>
+    </Container>
   );
 }
 

@@ -18,7 +18,7 @@ function Settings(props) {
   }, [location, type])
 
   return (
-    <Container className="col Settings">
+    <Container className="col page-container Settings">
       <Header className="row Settings-header">
         <SettingsIcon />
         <p className="Group-name">Settings</p>

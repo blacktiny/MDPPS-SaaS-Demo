@@ -1,5 +1,5 @@
 import React from 'react';
-import createSvgIcon from '../../global/utils/createSvgIcon';
+import createSvgIcon from '../../common/utils/createSvgIcon';
 
 export default createSvgIcon(
   <>

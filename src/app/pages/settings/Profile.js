@@ -11,7 +11,7 @@ import {
   SelectPickerItem,
   TimezonePickerItem,
   ButtonItem
-} from '../../global/components';
+} from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
@@ -20,7 +20,7 @@ import {
   CurrencySelectData,
   LanguageSelectData,
   AllSocialAccounts
-} from '../../global/utils/constants';
+} from '../../common/utils/constants';
 
 function Profile() {
   // eslint-disable-next-line no-unused-vars

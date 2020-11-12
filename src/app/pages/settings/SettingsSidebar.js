@@ -1,6 +1,6 @@
 import React from 'react';
-import SidebarItem from '../../global/components/SidebarItem'
-import { SettingsItems } from '../../global/utils/constants'
+import SidebarItem from '../../common/components/SidebarItem'
+import { SettingsItems } from '../../common/utils/constants'
 
 function SettingsSidebar(props) {
   const { type } = props;

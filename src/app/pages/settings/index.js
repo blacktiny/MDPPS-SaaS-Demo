@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter, Switch } from 'react-router-dom';
 import { Container, Header, Content, Sidebar } from 'rsuite';
-import RouteWithSubRoutes from '../../global/components/RouteWithSubRoutes';
+import RouteWithSubRoutes from '../../common/components/RouteWithSubRoutes';
 import SettingsSidebar from './SettingsSidebar';
 import { Settings as SettingsIcon } from '../../assets/icons';
-import { SettingsItems } from '../../global/utils/constants'
+import { SettingsItems } from '../../common/utils/constants'
 
 function Settings(props) {
   const { routes, location, match: {

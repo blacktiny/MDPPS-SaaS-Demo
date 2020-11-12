@@ -10,10 +10,15 @@ import {
   TextareaInputItem,
   TimezonePickerItem
 } from '../../global/components';
+import SocialAccountList from './components/SocialAccountList';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
 import { Camera, PreviewProfile, InputEye, InputVerified } from '../../assets/icons';
-import { LanguageSelectData, CurrencySelectData } from '../../global/utils/constants';
+import {
+  CurrencySelectData,
+  LanguageSelectData,
+  AllSocialAccounts
+} from '../../global/utils/constants';
 
 function Profile() {
   const [firstName, setFirstName] = useState('Jamie')
@@ -27,6 +32,7 @@ function Profile() {
   const [birthDate, setBirthDate] = useState(new Date)
   const [jobTitle, setJobTitle] = useState('National Sales Manager')
   const [about, setAbout] = useState('')
+  const [socialAccounts, setSocialAccounts] = useState(AllSocialAccounts)
   const [language, setLanguage] = useState('english')
   const [currency, setCurrency] = useState('usd')
   const [timezone, setTimezone] = useState('')
@@ -173,6 +179,10 @@ function Profile() {
                     title={'About'}
                     value={about}
                     onChanged={value => inputItemChanged(value, setAbout)}
+                  />
+                  <SocialAccountList
+                    data={socialAccounts}
+                    onChanged={setSocialAccounts}
                   />
                 </InputGroup>
               </Col>

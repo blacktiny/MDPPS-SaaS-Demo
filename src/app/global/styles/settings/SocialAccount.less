@@ -1,0 +1,92 @@
+// ----- Social List Item ----- //
+.Social-list {
+  position: relative;
+  margin-bottom: 35px; 
+
+  &-add-btn {
+    width: 25px;
+    height: 25px;
+    background-color: #f5f8fa;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+// ----- Social List Item ----- //
+.Social-list-item {
+  position: relative;
+  margin-bottom: 10px;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    background-color: @input-default-bg;
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    &.focused {
+      border: 1px solid @color-blue;
+    }
+
+    .rs-picker-select:hover {
+      background-color: @input-default-bg;
+    }
+
+    .rs-picker-toggle-value {
+      margin-left: 0;
+    }
+  }
+
+  input {
+    font-size: 12px;
+    color: black;
+    background-color: transparent;
+    border: none;
+
+    &::placeholder {
+      color: #98a0ac;
+    }
+  }
+
+  &-remove-btn {
+    position: absolute;
+    right: -25px;
+    top: 13px;
+    cursor: pointer;
+  }
+}
+
+.Social-select-menu-item {
+  &:hover {
+    .Social-select-menu-item-label {
+      color: @color-blue;
+    }
+  }
+}
+
+.Social-select-menu-item,
+.Social-list-item .Social-selected-menu {
+  .Icon-container {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+
+    .rs-icon {
+      color: @color-blue;
+      font-size: 20px;
+    }
+  }
+
+  &-label {
+    color: @color-dark3;
+    font-size: 14px;
+    margin-left: 15px;
+    width: 120px;
+  }
+}

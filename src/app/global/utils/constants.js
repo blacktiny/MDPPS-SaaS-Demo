@@ -64,6 +64,44 @@ export const SettingsItems = [
   }
 ]
 
+export const AllSocialAccounts = [
+  {
+    icon: 'twitter',
+    isOpened: true,
+    label: 'Twitter',
+    url: '',
+    value: 'twitter'
+  },
+  {
+    icon: 'facebook',
+    isOpened: false,
+    label: 'Facebook',
+    url: '',
+    value: 'facebook'
+  },
+  {
+    icon: 'linkedin',
+    isOpened: false,
+    label: 'LinkedIn',
+    url: '',
+    value: 'linkedin'
+  },
+  {
+    icon: 'instagram',
+    isOpened: false,
+    label: 'Instagram',
+    url: '',
+    value: 'instagram'
+  },
+  {
+    icon: 'youtube-play',
+    isOpened: false,
+    label: 'YouTube',
+    url: '',
+    value: 'youtube'
+  },
+]
+
 export const LanguageSelectData = [
   {
     label: 'English',

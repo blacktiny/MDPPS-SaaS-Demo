@@ -131,3 +131,149 @@ export const CurrencySelectData = [
     value: 'eur'
   }
 ]
+
+export const BusinessEntityTypeSelectData = [
+  {
+    label: 'Sole proprietorship',
+    value: 'sole'
+  },
+  {
+    label: 'Partnerships',
+    value: 'partner'
+  },
+  {
+    label: 'Corporation',
+    value: 'corporation'
+  },
+  {
+    label: 'S corporation',
+    value: 'scorporation'
+  },
+  {
+    label: 'Limited Liability Company (LLC)',
+    value: 'llc'
+  }
+]
+
+export const TaxIDTypeSelectData = [
+  {
+    label: 'EIN',
+    value: 'ein'
+  },
+  {
+    label: 'SSN',
+    value: 'ssn'
+  },
+  {
+    label: 'TIN',
+    value: 'tin'
+  },
+  {
+    label: 'Other',
+    value: 'other'
+  }
+]
+
+export const AnnualRevenueSelectData = [
+  {
+    label: 'Less than $1M',
+    value: 'revenue1'
+  },
+  {
+    label: '$1M-5M',
+    value: 'revenue2'
+  },
+  {
+    label: '$5M-10M',
+    value: 'revenue3'
+  },
+  {
+    label: '$10M-50M',
+    value: 'revenue4'
+  },
+  {
+    label: '$50M-250M',
+    value: 'revenue5'
+  },
+  {
+    label: '$250M-1B',
+    value: 'revenue6'
+  },
+  {
+    label: '$1B-3B',
+    value: 'revenue7'
+  },
+  {
+    label: 'More than $3B',
+    value: 'revenue8'
+  }
+]
+
+export const AnnualMarketingBudgetSelectData = [
+  {
+    label: 'Less than 6% of annual revenue',
+    value: 'marketing1'
+  },
+  {
+    label: '6-12% of annual revenue',
+    value: 'marketing2'
+  },
+  {
+    label: '12-20% of annual revenue',
+    value: 'marketing3'
+  },
+  {
+    label: 'More than 20% of annual revenue',
+    value: 'marketing4'
+  }
+]
+
+export const EmployeesNumSelectData = [
+  {
+    label: '1',
+    value: 'employee1'
+  },
+  {
+    label: '2-9',
+    value: 'employee2'
+  },
+  {
+    label: '10-24',
+    value: 'employee3'
+  },
+  {
+    label: '25-99',
+    value: 'employee4'
+  },
+  {
+    label: '100-499',
+    value: 'employee5'
+  },
+  {
+    label: '500-999',
+    value: 'employee6'
+  },
+  {
+    label: '1,000-4,999',
+    value: 'employee7'
+  },
+  {
+    label: 'More than 5,000',
+    value: 'employee8'
+  }
+]
+
+export const HeadquartersSelectData = [
+  {
+    label: 'Corporate Office',
+    value: 'corporate'
+  },
+  {
+    label: 'Headquarters',
+    value: 'headquarters'
+  },
+  {
+    label: 'Home Office',
+    value: 'home'
+  }
+]

@@ -46,7 +46,6 @@ function Profile(props) {
   const [currency, setCurrency] = useState('usd')
   const [timezone, setTimezone] = useState('')
   const [isAllValidate, setIsAllValidate] = useState(false)
-  // const [allValidate, setAllValidate] = useState([])
 
   // handler for the Password strength input event
   useEffect(() => {
@@ -58,12 +57,10 @@ function Profile(props) {
   }, [newPwd])
 
   // handler for the input item change event
-  const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [setFirstName, setLastName])
+  const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [])
 
   // do all validate
   const allValidate = useMemo(() => {
-    // eslint-disable-next-line no-undef
-    console.log('do all validate')
     const newAllValidate = []
 
     // Username

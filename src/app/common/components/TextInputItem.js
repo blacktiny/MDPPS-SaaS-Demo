@@ -58,7 +58,7 @@ function TextInputItem(props) {
     <Container className="Input-item">
       <Header className="Input-item-title">
         {title}
-        {required && <span className="required">&nbsp;*</span>}
+        {(title && required) && <span className="required">&nbsp;*</span>}
       </Header>
 
       <Content>

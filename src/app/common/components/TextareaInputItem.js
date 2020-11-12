@@ -64,7 +64,7 @@ function TextareaInputItem(props) {
           />
         </div>
         <div className={"Input-description " + (value.length === MAX_LENGTH ? 'error' : '')}>
-          Symbols left: {MAX_LENGTH - value.length}
+          Characters left: {MAX_LENGTH - value.length}
         </div>
        {extraContent}
       </Content>

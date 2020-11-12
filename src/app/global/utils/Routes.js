@@ -4,9 +4,16 @@ import Company from '../../pages/settings/Company'
 
 const routes = [
   {
-    path: '/',
-    exact: true,
-    component: Profile,
+    redirect: true,
+    from: '/',
+    to: '/settings/profile',
+    exact: true
+  },
+  {
+    redirect: true,
+    from: '/settings',
+    to: '/settings/profile',
+    exact: true
   },
   {
     path: '/settings/:type',

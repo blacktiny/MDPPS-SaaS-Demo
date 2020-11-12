@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Grid, Row, Col, Content, Container, Header } from 'rsuite';
 import {
-  DatePickerItem,
   InputGroup,
-  SelectPickerItem,
+  PhoneNumberInputItem,
   TextInputItem,
   TextareaInputItem,
+  DatePickerItem,
+  SelectPickerItem,
   TimezonePickerItem
 } from '../../global/components';
 import SocialAccountList from './components/SocialAccountList';
@@ -23,6 +24,8 @@ import {
 function Profile() {
   const [firstName, setFirstName] = useState('Jamie')
   const [lastName, setLastName] = useState('Jones')
+  // eslint-disable-next-line no-unused-vars
+  const [mobilePhone, setMobilePhone] = useState('+13093396341')
   const [userName, setUserName] = useState('jamiejones')
   const [curPwd, setCurPwd] = useState('')
   const [isCurPwdShowed, setIsCurPwdShowed] = useState(false)
@@ -31,6 +34,7 @@ function Profile() {
   const [pwdStrength, setPwdStrength] = useState('Weak')
   const [birthDate, setBirthDate] = useState(new Date)
   const [jobTitle, setJobTitle] = useState('National Sales Manager')
+  const [officePhone, setOfficePhone] = useState('+13093396341')
   const [about, setAbout] = useState('')
   const [socialAccounts, setSocialAccounts] = useState(AllSocialAccounts)
   const [language, setLanguage] = useState('english')
@@ -85,11 +89,25 @@ function Profile() {
                       <div className="Modal-link-btn">Change</div>
                     )}
                     inputSuffixEle={(
-                      <div>
+                      <div className="verified">
                         <InputVerified />
                       </div>
                     )}
                     disabled
+                  />
+                  <PhoneNumberInputItem
+                    title={'Mobile Number'}
+                    value={mobilePhone}
+                    extraContent={(
+                      <div className="Modal-link-btn">Change</div>
+                    )}
+                    inputSuffixEle={(
+                      <div className="verified">
+                        <InputVerified />
+                      </div>
+                    )}
+                    disabled
+                    errorMsg={'Please enter your office number'}
                   />
                   <TextInputItem
                     title={'Username'}
@@ -174,6 +192,13 @@ function Profile() {
                     onChanged={value => inputItemChanged(value, setJobTitle)}
                     required
                     errorMsg={'Please enter your job title'}
+                  />
+                  <PhoneNumberInputItem
+                    title={'Office Phone Number'}
+                    value={officePhone}
+                    onChanged={setOfficePhone}
+                    required
+                    errorMsg={'Please enter your office number'}
                   />
                   <TextareaInputItem
                     title={'About'}

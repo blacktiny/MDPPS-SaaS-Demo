@@ -6,7 +6,7 @@ function TextInputItem(props) {
     customStyle,
     disabled,
     errorMsg,
-    extraContent,
+    extraContentEle,
     inputPrefixEle,
     inputSuffixEle,
     onChanged,
@@ -75,7 +75,7 @@ function TextInputItem(props) {
           />
           {inputSuffixEle}
         </div>
-       {extraContent}
+       {extraContentEle}
       </Content>
 
       <Footer>

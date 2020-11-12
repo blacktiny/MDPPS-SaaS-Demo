@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Grid, Row, Col, Content, Container, Header, Icon, Divider } from 'rsuite';
 import {
   InputGroup,
@@ -21,12 +23,12 @@ import {
   LanguageSelectData,
   AllSocialAccounts
 } from '../../common/utils/constants';
+import { saveProfile } from '../../common/actions'
 
-function Profile() {
-  // eslint-disable-next-line no-unused-vars
-  const [emailAddress, setEmailAddress] = useState('jjones@mdpps.com')
-  // eslint-disable-next-line no-unused-vars
-  const [mobilePhone, setMobilePhone] = useState('+13093396341')
+function Profile(props) {
+  const { profile, saveProfile } = props;
+  const { emailAddress, mobilePhone } = profile;
+
   const [userName, setUserName] = useState('jamiejones')
   const [curPwd, setCurPwd] = useState('')
   const [isCurPwdShowed, setIsCurPwdShowed] = useState(false)
@@ -112,9 +114,6 @@ function Profile() {
   }, [
     userName, firstName, lastName, birthDate, jobTitle, officePhone
   ])
-
-  // eslint-disable-next-line no-undef
-  console.log('allValidate = ', allValidate)
 
   return (
     <div className="Settings-profile">
@@ -345,8 +344,17 @@ function Profile() {
                     >
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
                     </div>
-                    <ButtonItem className="Cancel-btn" appearance="default" title="Cancel" />
-                    <ButtonItem className="Save-btn" appearance="primary" title="Save Changes" />
+                    <ButtonItem
+                      className="Cancel-btn"
+                      appearance="default"
+                      title="Cancel"
+                    />
+                    <ButtonItem
+                      className="Save-btn"
+                      appearance="primary"
+                      title="Save Changes"
+                      onClick={() => saveProfile()}
+                    />
                   </div>
                 </div>
               </Col>
@@ -358,7 +366,22 @@ function Profile() {
   );
 }
 
-export default Profile;
+function mapStateToProps(state) {
+  return {
+    common: state.common,
+    profile: state.profile,
+  };
+}
+
+export default connect(mapStateToProps, dispatch => ({
+  dispatch,
+  ...bindActionCreators(
+    {
+      saveProfile,
+    },
+    dispatch
+  ),
+}))(Profile);
 
 const ProfileBackgroundImage = styled.div`
   position: relative;

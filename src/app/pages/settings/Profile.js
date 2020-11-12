@@ -2,10 +2,17 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Grid, Row, Col, Content, Container, Header } from 'rsuite';
-import { InputGroup, TextInputItem } from '../../global/components';
+import {
+  DatePickerItem,
+  InputGroup,
+  SelectPickerItem,
+  TextInputItem,
+  TimezonePickerItem
+} from '../../global/components';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
 import { Camera, PreviewProfile, InputEye, InputVerified } from '../../assets/icons';
+import { LanguageSelectData, CurrencySelectData } from '../../global/utils/constants';
 
 function Profile() {
   const [firstName, setFirstName] = useState('Jamie')
@@ -16,6 +23,11 @@ function Profile() {
   const [newPwd, setNewPwd] = useState('')
   const [isNewPwdShowed, setIsNewPwdShowed] = useState(false)
   const [pwdStrength, setPwdStrength] = useState('Weak')
+  const [birthDate, setBirthDate] = useState(new Date)
+  const [jobTitle, setJobTitle] = useState('National Sales Manager')
+  const [language, setLanguage] = useState('english')
+  const [currency, setCurrency] = useState('usd')
+  const [timezone, setTimezone] = useState('')
 
   // handler for the Password strength input event
   useEffect(() => {
@@ -124,6 +136,7 @@ function Profile() {
                   />
                 </InputGroup>
               </Col>
+
               <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Personal Information'}>
                   <TextInputItem
@@ -140,6 +153,55 @@ function Profile() {
                     required
                     errorMsg={'Please enter your last name'}
                   />
+                  <DatePickerItem
+                    title={'Date of Birth'}
+                    value={birthDate}
+                    onChanged={setBirthDate}
+                    required
+                  />
+                  <TextInputItem
+                    title={'Job Title'}
+                    value={jobTitle}
+                    placeholder={'Your job title'}
+                    onChanged={value => inputItemChanged(value, setJobTitle)}
+                    required
+                    errorMsg={'Please enter your job title'}
+                  />
+                </InputGroup>
+              </Col>
+
+              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+                <InputGroup title={'Localization'}>
+                  <Row>
+                    <Col xs={11}>
+                      <SelectPickerItem
+                        title={'Language'}
+                        value={language}
+                        data={LanguageSelectData}
+                        // eslint-disable-next-line no-unused-vars
+                        onChange={(value, _event) => setLanguage(value)}
+                      />
+                    </Col>
+                    <Col xs={11} xsPush={2}>
+                      <SelectPickerItem
+                        title={'Currency'}
+                        value={currency}
+                        data={CurrencySelectData}
+                        // eslint-disable-next-line no-unused-vars
+                        onChange={(value, _event) => setCurrency(value)}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={24}>
+                      <TimezonePickerItem
+                        // eslint-disable-next-line no-unused-vars
+                        onChange={(value, _event) => setTimezone(value)}
+                        title={'Time Zone'}
+                        value={timezone}
+                      />
+                    </Col>
+                  </Row>
                 </InputGroup>
               </Col>
             </Row>

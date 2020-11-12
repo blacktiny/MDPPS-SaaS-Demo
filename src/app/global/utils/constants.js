@@ -63,3 +63,33 @@ export const SettingsItems = [
     Icon: SettingsSecurity
   }
 ]
+
+export const LanguageSelectData = [
+  {
+    label: 'English',
+    value: 'english'
+  },
+  {
+    label: 'French',
+    value: 'french'
+  },
+  {
+    label: 'German',
+    value: 'german'
+  }
+]
+
+export const CurrencySelectData = [
+  {
+    label: 'USD',
+    value: 'usd'
+  },
+  {
+    label: 'GBP',
+    value: 'gbp'
+  },
+  {
+    label: 'EUR',
+    value: 'eur'
+  }
+]

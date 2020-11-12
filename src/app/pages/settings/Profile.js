@@ -7,6 +7,7 @@ import {
   InputGroup,
   SelectPickerItem,
   TextInputItem,
+  TextareaInputItem,
   TimezonePickerItem
 } from '../../global/components';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
@@ -25,6 +26,7 @@ function Profile() {
   const [pwdStrength, setPwdStrength] = useState('Weak')
   const [birthDate, setBirthDate] = useState(new Date)
   const [jobTitle, setJobTitle] = useState('National Sales Manager')
+  const [about, setAbout] = useState('')
   const [language, setLanguage] = useState('english')
   const [currency, setCurrency] = useState('usd')
   const [timezone, setTimezone] = useState('')
@@ -166,6 +168,11 @@ function Profile() {
                     onChanged={value => inputItemChanged(value, setJobTitle)}
                     required
                     errorMsg={'Please enter your job title'}
+                  />
+                  <TextareaInputItem
+                    title={'About'}
+                    value={about}
+                    onChanged={value => inputItemChanged(value, setAbout)}
                   />
                 </InputGroup>
               </Col>

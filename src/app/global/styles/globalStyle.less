@@ -17,6 +17,10 @@ h4 {
   align-items: center;
 }
 
+.error {
+  color: @color-red;
+}
+
 .color-blue {
   color: @color-blue;
 }
@@ -97,6 +101,7 @@ h4 {
     }
 
     &.focus {
+      background-color: transparent;
       border: 1px solid @color-blue;
     }
 
@@ -110,7 +115,8 @@ h4 {
       }
     }
 
-    input {
+    input,
+    textarea {
       font-size: 12px;
       color: #000000;
       background-color: transparent;
@@ -172,6 +178,25 @@ h4 {
   }
 }
 
+// ----- Textarea Input Item ----- //
+.Textarea-item {
+  position: relative;
+  margin-bottom: 35px;
+
+  &-container {
+    align-items: flex-start;
+    height: auto;
+    padding: 5px;
+  }
+
+  &-left-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+  }
+}
+
 // ----- Date Picker Item ----- //
 .Date-item {
   position: relative;
@@ -182,6 +207,10 @@ h4 {
 
     &.opened {
       border: 1px solid @color-blue;
+
+      &.rs-picker-date {
+        background-color: white;
+      }
     }
   }
 }
@@ -254,6 +283,10 @@ h4 {
 
     &.opened {
       border: 1px solid @color-blue;
+
+      .rs-picker-select {
+        background-color: white;
+      }
     }
   }
 }
@@ -313,6 +346,12 @@ h4 {
   
   &-content {
     position: relative;
+
+    &.focused {
+      .timezone-picker {
+        background-color: white;
+      }
+    }
 
     .rs-picker-toggle-caret {
       top: 14px;

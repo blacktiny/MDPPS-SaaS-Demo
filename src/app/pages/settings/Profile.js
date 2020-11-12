@@ -85,7 +85,7 @@ function Profile() {
                   <TextInputItem
                     title={'Email Address'}
                     value={'jjones@mdpps.com'}
-                    extraContent={(
+                    extraContentEle={(
                       <div className="Modal-link-btn">Change</div>
                     )}
                     inputSuffixEle={(
@@ -98,8 +98,8 @@ function Profile() {
                   <PhoneNumberInputItem
                     title={'Mobile Number'}
                     value={mobilePhone}
-                    extraContent={(
-                      <div className="Modal-link-btn">Change</div>
+                    extraContentEle={(
+                      <div className="Modal-link-btn phone-number">Change</div>
                     )}
                     inputSuffixEle={(
                       <div className="verified">
@@ -114,7 +114,7 @@ function Profile() {
                     value={userName}
                     placeholder={'Userid'}
                     onChanged={value => inputItemChanged(value, setUserName)}
-                    extraContent={(
+                    extraContentEle={(
                       <div className="Input-description">Unique profile name on [platform name]</div>
                     )}
                     inputPrefixEle={(
@@ -131,7 +131,7 @@ function Profile() {
                     value={curPwd}
                     placeholder={'Leave empty if you do not want to change your password'}
                     onChanged={value => inputItemChanged(value, setCurPwd)}
-                    extraContent={(
+                    extraContentEle={(
                       <div className="Modal-link-btn">I forgot my current password</div>
                     )}
                     inputSuffixEle={(
@@ -145,7 +145,7 @@ function Profile() {
                     title={'New Password'}
                     value={newPwd}
                     onChanged={value => inputItemChanged(value, setNewPwd)}
-                    extraContent={newPwd && (
+                    extraContentEle={newPwd && (
                       <div className="Password-strength">
                         <div className="Password-strength-container">
                           <div className={pwdStrength}></div>

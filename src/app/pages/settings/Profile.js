@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Grid, Row, Col, Content, Container, Header } from 'rsuite';
+import { Grid, Row, Col, Content, Container, Header, Icon, Divider } from 'rsuite';
 import {
   InputGroup,
   PhoneNumberInputItem,
@@ -9,7 +9,8 @@ import {
   TextareaInputItem,
   DatePickerItem,
   SelectPickerItem,
-  TimezonePickerItem
+  TimezonePickerItem,
+  ButtonItem
 } from '../../global/components';
 import SocialAccountList from './components/SocialAccountList';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
@@ -22,8 +23,8 @@ import {
 } from '../../global/utils/constants';
 
 function Profile() {
-  const [firstName, setFirstName] = useState('Jamie')
-  const [lastName, setLastName] = useState('Jones')
+  // eslint-disable-next-line no-unused-vars
+  const [emailAddress, setEmailAddress] = useState('jjones@mdpps.com')
   // eslint-disable-next-line no-unused-vars
   const [mobilePhone, setMobilePhone] = useState('+13093396341')
   const [userName, setUserName] = useState('jamiejones')
@@ -32,6 +33,8 @@ function Profile() {
   const [newPwd, setNewPwd] = useState('')
   const [isNewPwdShowed, setIsNewPwdShowed] = useState(false)
   const [pwdStrength, setPwdStrength] = useState('Weak')
+  const [firstName, setFirstName] = useState('Jamie')
+  const [lastName, setLastName] = useState('Jones')
   const [birthDate, setBirthDate] = useState(new Date)
   const [jobTitle, setJobTitle] = useState('National Sales Manager')
   const [officePhone, setOfficePhone] = useState('+13093396341')
@@ -40,6 +43,8 @@ function Profile() {
   const [language, setLanguage] = useState('english')
   const [currency, setCurrency] = useState('usd')
   const [timezone, setTimezone] = useState('')
+  const [isAllValidate, setIsAllValidate] = useState(false)
+  // const [allValidate, setAllValidate] = useState([])
 
   // handler for the Password strength input event
   useEffect(() => {
@@ -52,6 +57,64 @@ function Profile() {
 
   // handler for the input item change event
   const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [setFirstName, setLastName])
+
+  // do all validate
+  const allValidate = useMemo(() => {
+    // eslint-disable-next-line no-undef
+    console.log('do all validate')
+    const newAllValidate = []
+
+    // Username
+    if (!userName) {
+      newAllValidate.push({
+        type: 'Username',
+        msg: ' is already in use'
+      })
+    }
+    // First Name
+    if (!firstName) {
+      newAllValidate.push({
+        type: 'First name',
+        msg: ' is required'
+      })
+    }
+    // Last Name
+    if (!lastName) {
+      newAllValidate.push({
+        type: 'Last name',
+        msg: ' is required'
+      })
+    }
+    // Date of Birth
+    if (!birthDate) {
+      newAllValidate.push({
+        type: 'Date of birth',
+        msg: ' is required'
+      })
+    }
+    // Job Title
+    if (!jobTitle) {
+      newAllValidate.push({
+        type: 'Job title',
+        msg: ' is required'
+      })
+    }
+    // Office Phone Number
+    if (!officePhone) {
+      newAllValidate.push({
+        type: 'Office phone number',
+        msg: ' is required'
+      })
+    }
+
+    // setAllValidate(newAllValidate)
+    return newAllValidate
+  }, [
+    userName, firstName, lastName, birthDate, jobTitle, officePhone
+  ])
+
+  // eslint-disable-next-line no-undef
+  console.log('allValidate = ', allValidate)
 
   return (
     <div className="Settings-profile">
@@ -84,7 +147,7 @@ function Profile() {
                 <InputGroup title={'Account'}>
                   <TextInputItem
                     title={'Email Address'}
-                    value={'jjones@mdpps.com'}
+                    value={emailAddress}
                     extraContentEle={(
                       <div className="Modal-link-btn">Change</div>
                     )}
@@ -93,6 +156,7 @@ function Profile() {
                         <InputVerified />
                       </div>
                     )}
+                    doValidate={isAllValidate}
                     disabled
                   />
                   <PhoneNumberInputItem
@@ -122,6 +186,7 @@ function Profile() {
                         htpps://mdpps.com/u/
                       </div>
                     )}
+                    doValidate={isAllValidate}
                     required
                     errorMsg={'This username is already in use'}
                   />
@@ -139,6 +204,7 @@ function Profile() {
                         <InputEye />
                       </div>
                     )}
+                    doValidate={isAllValidate}
                   />
                   <TextInputItem
                     type={isNewPwdShowed ? 'text' : 'password'}
@@ -159,6 +225,7 @@ function Profile() {
                       </div>
                     )}
                     tooltip={'Minimum of 8 characters containing at least one upper case letter, a symbol and a number'}
+                    doValidate={isAllValidate}
                   />
                 </InputGroup>
               </Col>
@@ -245,6 +312,43 @@ function Profile() {
                     </Col>
                   </Row>
                 </InputGroup>
+              </Col>
+
+              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+                <div className="col">
+                  {isAllValidate && (
+                    <Container className="Validate-list">
+                      <Header className="Validate-list-header">
+                        <h4>Please address the following errors:</h4>
+                      </Header>
+                      <Content>
+                        <ul className="Validate-list-content">
+                          {allValidate.map((validate, index) => {
+                            return (
+                              <li key={index}>
+                                <span>{validate.type}</span>
+                                <span>{validate.msg}</span>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </Content>
+                      <Divider />
+                    </Container>
+                  )}
+                  <div className="row">
+                    <div
+                      className={"All-validate-btn " + (allValidate.length > 0 ? 'has-error' : '')}
+                      onClick={() => {
+                        setIsAllValidate(!isAllValidate)
+                      }}
+                    >
+                      <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
+                    </div>
+                    <ButtonItem className="Cancel-btn" appearance="default" title="Cancel" />
+                    <ButtonItem className="Save-btn" appearance="primary" title="Save Changes" />
+                  </div>
+                </div>
               </Col>
             </Row>
           </Grid>

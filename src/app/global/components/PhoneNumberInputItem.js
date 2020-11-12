@@ -10,7 +10,7 @@ function PhoneNumberInputItem(props) {
     errorMsg,
     inputSuffixEle,
     extraContentEle,
-    onChanged,
+    onChanged = () => {},
     noCaret,
     disabled,
     required

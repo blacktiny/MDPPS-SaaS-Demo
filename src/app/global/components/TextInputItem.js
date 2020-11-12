@@ -5,6 +5,7 @@ function TextInputItem(props) {
   const {
     customStyle,
     disabled,
+    doValidate,
     errorMsg,
     extraContentEle,
     inputPrefixEle,
@@ -33,6 +34,11 @@ function TextInputItem(props) {
         setTooltipAlign('top')
     }
   }, [eleRef.current, tooltip])
+
+  // do validate
+  useEffect(() => {
+    if (doValidate) handleInputBlur()
+  }, [doValidate])
 
   // handler for input focus event
   const handleInputFocus = useCallback(() => {

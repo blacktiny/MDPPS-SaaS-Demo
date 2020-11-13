@@ -333,6 +333,7 @@ function Company() {
                     title={'Categories'}
                     options={CategoriesSelectData}
                     value={categories}
+                    errorMsg={'Please choose at least one business category'}
                     // eslint-disable-next-line no-unused-vars
                     onChanged={(value, _event) => setCategories(value)}
                     components={{ ValueContainer }}
@@ -346,6 +347,7 @@ function Company() {
                     title={'Product Lines'}
                     options={ProductLinesSelectData}
                     value={products}
+                    errorMsg={'Please choose at least one product line'}
                     // eslint-disable-next-line no-unused-vars
                     onChanged={(value, _event) => setProducts(value)}
                     components={{ ValueContainer }}
@@ -359,6 +361,7 @@ function Company() {
                     title={'Services'}
                     options={ServicesSelectData}
                     value={services}
+                    errorMsg={'Please choose at least one service'}
                     // eslint-disable-next-line no-unused-vars
                     onChanged={(value, _event) => setServices(value)}
                     components={{ ValueContainer }}

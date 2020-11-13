@@ -764,6 +764,12 @@ h4 {
 
 // ----- MDPPS Select ----- //
 .mdpps-select {
+  &.invalid {
+    .mdpps-select__control {
+      border-color: @color-red !important;
+    }
+  }
+
   &__control {
     height: 50px;
     font-size: 13px !important;

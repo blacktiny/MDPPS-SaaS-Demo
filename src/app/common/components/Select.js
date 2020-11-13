@@ -51,7 +51,7 @@ function MDPPSSelect(props) {
 
       <Content>
         <Select
-          className={"mdpps-select " + ((required && isValid) ? '' : 'invalid')}
+          className={"mdpps-select " + (!(required && !isValid) ? '' : 'invalid')}
           classNamePrefix="mdpps-select"
           closeMenuOnSelect={!isMulti}
           components={animatedComponents}

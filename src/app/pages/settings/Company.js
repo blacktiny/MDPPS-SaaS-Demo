@@ -319,7 +319,7 @@ function Company() {
               <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Classification'}>
                   <div className="classification-contact-us">
-                    Can`t find your industry or category? <Link to="https://mdpps.com/contact-us/">Contact us</Link>
+                    Can`t find your industry or category? <Link href="https://mdpps.com/contact-us/" target="_blank">Contact us</Link>
                   </div>
                   <MDPPSSelect
                     title={'Industry'}

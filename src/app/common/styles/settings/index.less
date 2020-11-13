@@ -172,6 +172,10 @@
   }
 }
 
+/*
+  Settings / Company page
+*/
+
 // ----- Company / Company Official List ----- //
 .Official-list {
   &-content-header {
@@ -209,16 +213,30 @@
     cursor: pointer;
   }
 
-  .search-icon {
-    margin-right: 10px;
-
-    i {
-      font-size: 18px;
-      color: @color-blue;
-    }
-  }
-
   .rs-divider {
     margin: 0;
+  }
+}
+
+.mdpps-select-search-icon {
+  margin-right: 10px;
+
+  i {
+    font-size: 18px;
+    color: @color-blue;
+  }
+}
+
+// ----- Company / Classification ----- //
+.classification-contact-us {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  color: #565456;
+
+  a {
+    color: @color-blue;
+    text-decoration: none;
   }
 }

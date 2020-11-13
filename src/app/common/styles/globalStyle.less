@@ -102,6 +102,7 @@ h4 {
 */
 // ----- Input Group ----- //
 .Input-group {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 2em;
@@ -804,5 +805,37 @@ h4 {
 
   &__indicator-separator {
     display: none;
+  }
+
+  &__menu {
+    &-option-container {
+      padding-left: 50px;
+    }
+  }
+
+  &__multi-value {
+    display: flex;
+    align-items: center;
+    border-radius: 101px !important;
+    background-color: #4284fc !important;
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15) !important;
+
+    &__label {
+      font-family: 'Roboto Regular', 'Roboto', sans-serif;
+      font-size: 13px !important;
+      color: #ffffff !important;
+      text-align: left;
+      line-height: 10px !important;
+      padding-left: 10px !important;
+    }
+
+    &__remove {
+      &:hover {
+        background-color: transparent !important;
+        color: white !important;
+      }
+    }
   }
 }

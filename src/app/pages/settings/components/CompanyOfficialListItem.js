@@ -4,11 +4,11 @@ import { components } from 'react-select';
 import { MDPPSSelect, SelectCustomPickerItem } from '../../../common/components';
 import { TeamMemberSelectData, DesignationSelectData } from '../../../common/utils/constants';
 
-const ValueContainer = ({ children, ...props }) => {
+export const ValueContainer = ({ children, ...props }) => {
   return (
     <components.ValueContainer {...props}>
-      <div className="search-icon"><Icon icon="search" /></div>
-      <div>{children}</div>
+      <div className="mdpps-select-search-icon"><Icon icon="search" /></div>
+      <div style={{ display: 'flex', width: 'calc(100% - 60px)'}}>{children}</div>
     </components.ValueContainer>
   );
 };
@@ -48,7 +48,6 @@ function CompanyOfficialListItem(props) {
           // eslint-disable-next-line no-unused-vars
           onChanged={(value, _event) => handlerTeamMemberChange(value)}
           components={{ ValueContainer, MenuList }}
-          editable
         />
       </Col>
       <Col xs={24} md={7} mdPush={1}>

@@ -11,6 +11,7 @@ function MDPPSSelect(props) {
     options,
     value,
     onChanged,
+    extraContentEle,
     isMulti,
     required,
     ...restProps
@@ -52,6 +53,8 @@ function MDPPSSelect(props) {
           {...restProps}
         />
       </Content>
+
+      {extraContentEle}
     </Container>
   );
 }

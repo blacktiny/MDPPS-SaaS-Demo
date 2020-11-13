@@ -8,12 +8,14 @@ import {
   InputGroup,
   TextInputItem,
   TextareaInputItem,
+  MDPPSSelect,
   SelectPickerItem,
   SelectCustomPickerItem,
   ButtonItem
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import CompanyOfficialList from './components/CompanyOfficialList';
+import { ValueContainer } from './components/CompanyOfficialListItem';
 import EditImageModal from './components/EditImageModal';
 import CompanyBGImgURL from '../../assets/images/company_background.svg';
 import CompanyAvatarURL from '../../assets/images/company_FASS.png';
@@ -27,7 +29,11 @@ import {
   EmployeesNumSelectData,
   HeadquartersSelectData,
   OriginSelectData,
-  CompanyOfficialsData
+  CompanyOfficialsData,
+  IndustrySelectData,
+  CategoriesSelectData,
+  ProductLinesSelectData,
+  ServicesSelectData
 } from '../../common/utils/constants';
 import { saveProfile } from '../../common/actions'
 
@@ -51,10 +57,14 @@ function Company() {
   const [quarterAddress, setQuarterAddress] = useState('')
   const [originType, setOriginType] = useState('made')
   const [originAddress, setOriginAddress] = useState('')
+  const [companyOfficials, setCompanyOfficials] = useState(CompanyOfficialsData)
+  const [industry, setIndustry] = useState(IndustrySelectData[5])
+  const [categories, setCategories] = useState([CategoriesSelectData[2], CategoriesSelectData[3]])
+  const [products, setProducts] = useState([ProductLinesSelectData[0], ProductLinesSelectData[1]])
+  const [services, setServices] = useState([ServicesSelectData[2], ServicesSelectData[1]])
   const [isAllValidate, setIsAllValidate] = useState(false)
   const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
   const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
-  const [companyOfficials, setCompanyOfficials] = useState(CompanyOfficialsData)
 
   // handler for the input item change event
   const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [])
@@ -304,6 +314,61 @@ function Company() {
                   data={companyOfficials}
                   onChanged={setCompanyOfficials}
                 />
+              </Col>
+
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+                <InputGroup title={'Classification'}>
+                  <div className="classification-contact-us">
+                    Can`t find your industry or category? <Link to="https://mdpps.com/contact-us/">Contact us</Link>
+                  </div>
+                  <MDPPSSelect
+                    title={'Industry'}
+                    options={IndustrySelectData}
+                    value={industry}
+                    // eslint-disable-next-line no-unused-vars
+                    onChanged={(value, _event) => setIndustry(value)}
+                    required
+                  />
+                  <MDPPSSelect
+                    title={'Categories'}
+                    options={CategoriesSelectData}
+                    value={categories}
+                    // eslint-disable-next-line no-unused-vars
+                    onChanged={(value, _event) => setCategories(value)}
+                    components={{ ValueContainer }}
+                    extraContentEle={(
+                      <div className="Input-description">Select up to 10 categories</div>
+                    )}
+                    isMulti
+                    required
+                  />
+                  <MDPPSSelect
+                    title={'Product Lines'}
+                    options={ProductLinesSelectData}
+                    value={products}
+                    // eslint-disable-next-line no-unused-vars
+                    onChanged={(value, _event) => setProducts(value)}
+                    components={{ ValueContainer }}
+                    extraContentEle={(
+                      <div className="Input-description">Select up to 10 product lines</div>
+                    )}
+                    isMulti
+                    required
+                  />
+                  <MDPPSSelect
+                    title={'Services'}
+                    options={ServicesSelectData}
+                    value={services}
+                    // eslint-disable-next-line no-unused-vars
+                    onChanged={(value, _event) => setServices(value)}
+                    components={{ ValueContainer }}
+                    extraContentEle={(
+                      <div className="Input-description">Select up to 10 services</div>
+                    )}
+                    isMulti
+                    required
+                  />
+                </InputGroup>
               </Col>
 
               <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>

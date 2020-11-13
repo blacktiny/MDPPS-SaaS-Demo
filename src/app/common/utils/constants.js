@@ -383,3 +383,83 @@ export const CompanyOfficialsData = [
     }
   }
 ]
+
+export const IndustrySelectData = [
+  {
+    label: 'Animals & Pet Supplies',
+    value: 'animal'
+  },
+  {
+    label: 'Apparel & Accessorles',
+    value: 'apparel'
+  },
+  {
+    label: 'Arts & Entertainment',
+    value: 'arts'
+  },
+  {
+    label: 'Baby & Toddler',
+    value: 'baby'
+  },
+  {
+    label: 'Business & Industrial',
+    value: 'business'
+  },
+  {
+    label: 'Automotive',
+    value: 'automotive'
+  }
+]
+
+export const CategoriesSelectData = [
+  {
+    label: 'Motor Vehicles',
+    value: 'motor_vehicles'
+  },
+  {
+    label: 'Motor Vehicle Carpet & Upholstery',
+    value: 'upholstery'
+  },
+  {
+    label: 'Motor Vehicle Climate Control',
+    value: 'climate_control'
+  },
+  {
+    label: 'Motor Vehicle braking',
+    value: 'braking'
+  },
+  {
+    label: 'Parts and accessories',
+    value: 'parts_accessories'
+  },
+]
+
+export const ProductLinesSelectData = [
+  {
+    label: 'Pick-ups',
+    value: 'pickups'
+  },
+  {
+    label: 'Class-8 trucks',
+    value: 'class8-trucks'
+  },
+  {
+    label: 'Marine',
+    value: 'marine'
+  }
+]
+
+export const ServicesSelectData = [
+  {
+    label: 'Sales',
+    value: 'sales'
+  },
+  {
+    label: 'Installation',
+    value: 'installation'
+  },
+  {
+    label: 'Repair',
+    value: 'repair'
+  }
+]

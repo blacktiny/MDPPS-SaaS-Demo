@@ -2,6 +2,11 @@ body {
   font-family: 'Roboto Medium', 'Roboto', sans-serif;
 }
 
+h1 {
+  font-size: 35px;
+  font-weight: 500;
+}
+
 h4 {
   font-size: 14px;
   font-weight: 400;
@@ -36,6 +41,7 @@ h4 {
 
 .page-container {
   max-width: 1440px;
+  margin: 0 auto;
 
   @media (max-width: 1440px) {
     width: 90%;
@@ -130,6 +136,10 @@ h4 {
       font-size: 20px;
       color: @color-red;
       margin-left: -2px;
+    }
+
+    @media (max-width: 992px) {
+      height: fit-content;
     }
   }
 
@@ -633,7 +643,7 @@ h4 {
   }
 }
 
-// ----- Button Item ----- //
+// ----- Button ----- //
 #Button-item {
   font-size: 16px;
   font-weight: 700;
@@ -650,4 +660,30 @@ h4 {
 .rs-btn-primary:focus, .rs-btn-primary.rs-btn-focus {
   color: #ffffff;
   background-color: @color-blue;
+}
+
+// ----- Modal ----- //
+.MDPPS-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1449a950;
+  z-index: 99999;
+
+  &.fullscreen {
+    background-color: white;
+  }
+
+  &-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+
+    i {
+      font-size: 40px;
+    }
+  }
 }

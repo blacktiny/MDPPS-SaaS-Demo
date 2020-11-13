@@ -168,7 +168,7 @@ function Company() {
                     required
                   />
                   <Row>
-                    <Col xs={7}>
+                    <Col xs={24} md={8} lg={7}>
                       <SelectPickerItem
                         title={'Tax ID Number'}
                         value={taxIDType}
@@ -178,7 +178,7 @@ function Company() {
                         required
                       />
                     </Col>
-                    <Col xs={16} xsPush={1}>
+                    <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
                       <TextInputItem
                         title={''}
                         value={taxIDNumber}
@@ -190,7 +190,7 @@ function Company() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs={7}>
+                    <Col xs={24} md={8} lg={7}>
                       <TextInputItem
                         title={'Year Established'}
                         value={yearEstablished}
@@ -200,7 +200,7 @@ function Company() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs={7}>
+                    <Col xs={24} lg={7}>
                       <SelectPickerItem
                         title={'Annual Revenue'}
                         value={revenue}
@@ -209,7 +209,7 @@ function Company() {
                         onChange={(value, _event) => setRevenue(value)}
                       />
                     </Col>
-                    <Col xs={7} xsPush={1}>
+                    <Col xs={24} lg={7} lgPush={1}>
                       <SelectPickerItem
                         title={'Annual Marketing Budget'}
                         value={marketing}
@@ -218,7 +218,7 @@ function Company() {
                         onChange={(value, _event) => setMarketing(value)}
                       />
                     </Col>
-                    <Col xs={8} xsPush={2}>
+                    <Col xs={24} lg={8} lgPush={2}>
                       <SelectPickerItem
                         title={'Number of Employees'}
                         value={employeesNum}
@@ -246,7 +246,7 @@ function Company() {
                     onChanged={setSocialAccounts}
                   />
                   <Row>
-                    <Col xs={7}>
+                    <Col xs={24} md={8} lg={7}>
                       <SelectCustomPickerItem
                         title={'Headquarters / Territory'}
                         value={quarterAddrType}
@@ -255,7 +255,7 @@ function Company() {
                         onChange={(value, _event) => setQuarterAddrType(value)}
                       />
                     </Col>
-                    <Col xs={16} xsPush={1}>
+                    <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
                       <TextInputItem
                         title={''}
                         value={quarterAddress}
@@ -266,7 +266,7 @@ function Company() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs={7}>
+                    <Col xs={24} md={8} lg={7}>
                       <SelectCustomPickerItem
                         title={'Origin'}
                         value={originType}
@@ -275,7 +275,7 @@ function Company() {
                         onChange={(value, _event) => setOriginType(value)}
                       />
                     </Col>
-                    <Col xs={16} xsPush={1}>
+                    <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
                       <TextInputItem
                         title={''}
                         value={originAddress}
@@ -310,7 +310,7 @@ function Company() {
                       <Divider />
                     </Container>
                   )}
-                  <div className="row">
+                  <div className="profile-submit-btn-group">
                     <div
                       className={"All-validate-btn " + (allValidate.length > 0 ? 'has-error' : '')}
                       onClick={() => {
@@ -319,17 +319,19 @@ function Company() {
                     >
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
                     </div>
-                    <ButtonItem
-                      className="Cancel-btn"
-                      appearance="default"
-                      title="Cancel"
-                    />
-                    <ButtonItem
-                      className="Save-btn"
-                      appearance="primary"
-                      title="Save Changes"
-                      onClick={() => saveProfile()}
-                    />
+                    <div className="btn-group">
+                      <ButtonItem
+                        className="Cancel-btn"
+                        appearance="default"
+                        title="Cancel"
+                      />
+                      <ButtonItem
+                        className="Save-btn"
+                        appearance="primary"
+                        title="Save Changes"
+                        onClick={() => saveProfile()}
+                      />
+                    </div>
                   </div>
                 </div>
               </Col>

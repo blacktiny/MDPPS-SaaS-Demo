@@ -15,6 +15,7 @@ import {
   ButtonItem
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
+import EditImageModal from './components/EditImageModal';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
 import { Camera, PreviewProfile, InputEye, InputVerified } from '../../assets/icons';
@@ -46,6 +47,8 @@ function Profile(props) {
   const [currency, setCurrency] = useState('usd')
   const [timezone, setTimezone] = useState('')
   const [isAllValidate, setIsAllValidate] = useState(false)
+  const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
+  const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
 
   // handler for the Password strength input event
   useEffect(() => {
@@ -115,7 +118,7 @@ function Profile(props) {
   return (
     <div className="Settings-profile">
       <ProfileBackgroundImage imgURL={ProfileBGImgURL} />
-      <div className="Background-change-btn">
+      <div className="Background-change-btn" onClick={() => setShowEditCoverImageModal(true)}>
         <Camera />
       </div>
 
@@ -123,7 +126,7 @@ function Profile(props) {
         <Header className="row Profile-header">
           <div className="Avatar-container">
             <img className="Avatar-img" src={ProfileAvatarURL} alt="avatar" />
-            <div className="Avatar-change-btn">
+            <div className="Avatar-change-btn" onClick={() => setShowEditProfileImageModal(true)}>
               <Camera />
             </div>
           </div>
@@ -361,6 +364,18 @@ function Profile(props) {
           </Grid>
         </Content>
       </Container>
+
+      <EditImageModal
+        src={ProfileBGImgURL}
+        show={showEditCoverImageModal}
+        onClosed={() => setShowEditCoverImageModal(false)}
+      />
+      <EditImageModal
+        src={ProfileAvatarURL}
+        show={showEditProfileImageModal}
+        type="profile"
+        onClosed={() => setShowEditProfileImageModal(false)}
+      />
     </div>
   );
 }

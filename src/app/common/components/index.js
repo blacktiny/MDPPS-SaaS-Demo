@@ -9,6 +9,6 @@ export { default as MDPPSSelect } from './Select';
 export { default as SelectPickerItem } from './SelectPickerItem';
 export { default as SelectCustomPickerItem } from './SelectCustomPickerItem';
 export { default as TimezonePickerItem } from './TimezonePickerItem';
-export { default as ButtonItem } from './ButtonItem';
-export { default as MDPPSModal } from './MDPPSModal';
+export { default as Button } from './Button';
+export { default as Modal } from './Modal';
 export { default as PDFUploadDropzone } from './PDFUploadDropzone';

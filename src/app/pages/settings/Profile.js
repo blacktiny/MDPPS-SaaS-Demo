@@ -12,7 +12,7 @@ import {
   DatePickerItem,
   SelectPickerItem,
   TimezonePickerItem,
-  ButtonItem
+  Button
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import EditImageModal from './components/EditImageModal';
@@ -355,12 +355,12 @@ function Profile(props) {
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
                     </div>
                     <div className="btn-group">
-                      <ButtonItem
+                      <Button
                         className="Default-btn"
                         appearance="default"
                         title="Cancel"
                       />
-                      <ButtonItem
+                      <Button
                         className="Save-btn"
                         appearance="primary"
                         title="Save Changes"

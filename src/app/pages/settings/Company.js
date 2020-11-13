@@ -11,7 +11,7 @@ import {
   MDPPSSelect,
   SelectPickerItem,
   SelectCustomPickerItem,
-  ButtonItem,
+  Button,
   PDFUploadDropzone
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
@@ -417,12 +417,12 @@ function Company() {
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
                     </div>
                     <div className="btn-group">
-                      <ButtonItem
+                      <Button
                         className="Default-btn"
                         appearance="default"
                         title="Cancel"
                       />
-                      <ButtonItem
+                      <Button
                         className="Save-btn"
                         appearance="primary"
                         title="Save Changes"

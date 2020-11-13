@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Modal } from 'rsuite';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ButtonItem, TextInputItem, MDPPSModal } from '../../../common/components';
+import { Button, TextInputItem, Modal as MDPPSModal } from '../../../common/components';
 import { changeEmail, finishEmailChange } from '../../../common/actions'
 
 function EmailInputPage(props) {
@@ -32,13 +32,13 @@ function EmailInputPage(props) {
       </Modal.Body>
       <Modal.Footer>
         <div className="btn-group">
-          <ButtonItem
+          <Button
             className="Default-btn"
             appearance="default"
             title="Cancel"
             onClick={() => onClosed()}
           />
-          <ButtonItem
+          <Button
             className="Save-btn"
             appearance="primary"
             title="Next"
@@ -79,13 +79,13 @@ export function OTPCodeInputPage(props) {
       </Modal.Body>
       <Modal.Footer>
         <div className="btn-group">
-          <ButtonItem
+          <Button
             className="Default-btn"
             appearance="default"
             title="Cancel"
             onClick={() => onClosed()}
           />
-          <ButtonItem
+          <Button
             className="Save-btn"
             appearance="primary"
             title="Confirm"
@@ -112,7 +112,7 @@ export function FinishPage(props) {
       </Modal.Body>
       <Modal.Footer>
         <div className="btn-group">
-          <ButtonItem
+          <Button
             className="Default-btn"
             appearance="default"
             title="Close"

@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import Cropper from 'cropperjs';
 import { Container, Header, Content, Footer } from 'rsuite';
-import { ButtonItem, MDPPSModal } from '../../../common/components';
+import { Button, Modal } from '../../../common/components';
 import 'cropperjs/dist/cropper.min.css';
 
 function ImageCropper(props) {
@@ -37,7 +37,7 @@ function EditImageModal(props) {
   const [cropedImage, setCropedImage] = useState('')
 
   return (
-    <MDPPSModal fullscreen show={show} onClosed={onClosed}>
+    <Modal fullscreen show={show} onClosed={onClosed}>
       <Container className="page-container Edit-image">
         <Header className="Edit-image-header">
           <h1>{type === 'cover' ? 'Edit Cover Image' : (type === 'profile' ? 'Edit your profile image' : 'Edit your Logo')}</h1>
@@ -53,13 +53,13 @@ function EditImageModal(props) {
             Delete Current {type === 'cover' ? 'Cover' : (type === 'logo' ? 'Logo' : 'Photo')}
           </div>
           <div className="btn-group">
-            <ButtonItem
+            <Button
               className="Default-btn"
               appearance="default"
               title="Cancel"
               onClick={() => onClosed()}
             />
-            <ButtonItem
+            <Button
               className="Save-btn"
               appearance="primary"
               title={type === 'cover' ? 'Set Cover' : (type === 'logo' ? 'Set Logo' : 'Set Photo')}
@@ -68,7 +68,7 @@ function EditImageModal(props) {
           </div>
         </Footer>
       </Container>
-    </MDPPSModal>
+    </Modal>
   )
 }
 

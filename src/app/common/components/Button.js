@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'rsuite';
 
-function ButtonItem(props) {
+function MDPPSButton(props) {
   const { title, ...restProps } = props;
 
   return (
-    <Button id="Button-item" {...restProps}>{title}</Button>
+    <Button id="mdpps-button" {...restProps}>{title}</Button>
   );
 }
 
-export default ButtonItem;
+export default MDPPSButton;

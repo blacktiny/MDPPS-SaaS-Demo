@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Grid, Row, Col, Content, Container, Header, Icon, Divider } from 'rsuite';
+import { Grid, Row, Col, Content, Container, Header, Icon, Divider, Checkbox } from 'rsuite';
 import {
   InputGroup,
   TextInputItem,
@@ -13,6 +13,7 @@ import {
   ButtonItem
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
+import CompanyOfficialList from './components/CompanyOfficialList';
 import EditImageModal from './components/EditImageModal';
 import CompanyBGImgURL from '../../assets/images/company_background.svg';
 import CompanyAvatarURL from '../../assets/images/company_FASS.png';
@@ -25,12 +26,14 @@ import {
   AnnualMarketingBudgetSelectData,
   EmployeesNumSelectData,
   HeadquartersSelectData,
-  OriginSelectData
+  OriginSelectData,
+  CompanyOfficialsData
 } from '../../common/utils/constants';
 import { saveProfile } from '../../common/actions'
 
 function Company() {
   const [legalName, setLegalName] = useState('FASS Diesel Performance Products, Inc.')
+  const [isSameDBA, setIsSameDBA] = useState(false)
   const [dba, setDba] = useState('')
   const [prevKnown, setPrevKnown] = useState('')
   const [companyPage, setCompanyPage] = useState('')
@@ -51,6 +54,7 @@ function Company() {
   const [isAllValidate, setIsAllValidate] = useState(false)
   const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
   const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
+  const [companyOfficials, setCompanyOfficials] = useState(CompanyOfficialsData)
 
   // handler for the input item change event
   const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [])
@@ -128,17 +132,23 @@ function Company() {
                     value={legalName}
                     onChanged={value => inputItemChanged(value, setLegalName)}
                     extraContentEle={(
-                      <div className="Modal-link-btn">Change</div>
+                      <div className="row Input-description">
+                        <Checkbox value={isSameDBA} onChange={
+                          // eslint-disable-next-line no-unused-vars
+                          (_value, checked, _event) => setIsSameDBA(checked)
+                        }></Checkbox>
+                        Legal Name is same as DBA
+                      </div>
                     )}
                     doValidate={isAllValidate}
                     required
                   />
-                  <TextInputItem
+                  {!isSameDBA && (<TextInputItem
                     title={'DBA'}
                     value={dba}
                     placeholder={'Doing Business As'}
                     onChanged={value => inputItemChanged(value, setDba)}
-                  />
+                  />)}
                   <TextInputItem
                     title={'Previously Known as'}
                     value={prevKnown}
@@ -254,8 +264,7 @@ function Company() {
                         title={'Headquarters / Territory'}
                         value={quarterAddrType}
                         data={HeadquartersSelectData}
-                        // eslint-disable-next-line no-unused-vars
-                        onChange={(value, _event) => setQuarterAddrType(value)}
+                        onChanged={item => setQuarterAddrType(item.value)}
                       />
                     </Col>
                     <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
@@ -274,8 +283,7 @@ function Company() {
                         title={'Origin'}
                         value={originType}
                         data={OriginSelectData}
-                        // eslint-disable-next-line no-unused-vars
-                        onChange={(value, _event) => setOriginType(value)}
+                        onChanged={item => setOriginType(item.value)}
                       />
                     </Col>
                     <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
@@ -289,6 +297,13 @@ function Company() {
                     </Col>
                   </Row>
                 </InputGroup>
+              </Col>
+
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+                <CompanyOfficialList
+                  data={companyOfficials}
+                  onChanged={setCompanyOfficials}
+                />
               </Col>
 
               <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>

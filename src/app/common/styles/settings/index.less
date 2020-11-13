@@ -171,3 +171,54 @@
     margin-top: 5px;
   }
 }
+
+// ----- Company / Company Official List ----- //
+.Official-list {
+  &-content-header {
+    h4 {
+      color: @color-dark2;
+    }
+  }
+
+  &-add-btn {
+    cursor: pointer;
+  }
+
+  .rs-divider {
+    margin: 50px 0;
+  }
+}
+
+// ----- Company / Company Official List Item ----- //
+.Official-list-item {
+  position: relative;
+
+  .Select-item,
+  .Select-custom-item {
+    margin-bottom: 10px;
+
+    .Input-item-title {
+      height: 0;
+    }
+  }
+
+  &-remove-btn {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    margin-right: 10px;
+
+    i {
+      font-size: 18px;
+      color: @color-blue;
+    }
+  }
+
+  .rs-divider {
+    margin: 0;
+  }
+}

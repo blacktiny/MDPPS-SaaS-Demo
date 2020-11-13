@@ -96,7 +96,8 @@ function SelectCustomPickerItem(props) {
           value={value}
           cleanable={false}
           searchable={false}
-          onChange={onChanged}
+          // eslint-disable-next-line no-unused-vars
+          onSelect={(_value, item, _event) => onChanged(item)}
           onClose={() => setIsOpened(false)}
           menuClassName="select-custom-menu"
           maxHeight={300}

@@ -303,3 +303,83 @@ export const OriginSelectData = [
     groupBy: 'origin'
   }
 ]
+
+export const TeamMemberSelectData = [
+  {
+    label: 'Ruth Eechaute',
+    value: 'ruth_eechaute',
+    groupBy: 'member'
+  },
+  {
+    label: 'Howie Thompson',
+    value: 'howie_thompson',
+    groupBy: 'member'
+  },
+  {
+    label: 'Jamie Jones',
+    value: 'jamie_jones',
+    groupBy: 'member'
+  },
+  {
+    label: 'Jason Kuenkler',
+    value: 'jason_kuenkler',
+    groupBy: 'member'
+  }
+]
+
+export const DesignationSelectData = [
+  {
+    label: 'CEO',
+    value: 'ceo',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Founder',
+    value: 'founder',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Account/Brand Owner',
+    value: 'owner',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Brand Manager',
+    value: 'brand_manager',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Primary Contact',
+    value: 'primary_contact',
+    groupBy: 'origin'
+  }
+]
+
+export const CompanyOfficialsData = [
+  {
+    id: 'ruth_eechaute-ceo',
+    member: {
+      label: 'Ruth Eechaute',
+      value: 'ruth_eechaute',
+      groupBy: 'member'
+    },
+    designation: {
+      label: 'CEO',
+      value: 'ceo',
+      groupBy: 'origin'
+    }
+  },
+  {
+    id: 'jamie_jones-primary_contact',
+    member: {
+      label: 'Jamie Jones',
+      value: 'jamie_jones',
+      groupBy: 'member'
+    },
+    designation: {
+      label: 'Primary Contact',
+      value: 'primary_contact',
+      groupBy: 'origin'
+    }
+  }
+]

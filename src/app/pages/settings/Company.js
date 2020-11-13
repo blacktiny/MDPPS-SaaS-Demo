@@ -13,6 +13,7 @@ import {
   ButtonItem
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
+import EditImageModal from './components/EditImageModal';
 import CompanyBGImgURL from '../../assets/images/company_background.svg';
 import CompanyAvatarURL from '../../assets/images/company_FASS.png';
 import { Camera, PreviewProfile } from '../../assets/icons';
@@ -48,6 +49,8 @@ function Company() {
   const [originType, setOriginType] = useState('made')
   const [originAddress, setOriginAddress] = useState('')
   const [isAllValidate, setIsAllValidate] = useState(false)
+  const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
+  const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
 
   // handler for the input item change event
   const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [])
@@ -94,7 +97,7 @@ function Company() {
   return (
     <div className="Settings-company">
       <CompanyBackgroundImage imgURL={CompanyBGImgURL} />
-      <div className="Background-change-btn">
+      <div className="Background-change-btn" onClick={() => setShowEditCoverImageModal(true)}>
         <Camera />
       </div>
       
@@ -102,7 +105,7 @@ function Company() {
         <Header className="row Profile-header">
           <div className="Avatar-container">
             <img className="Avatar-img" src={CompanyAvatarURL} alt="avatar" />
-            <div className="Avatar-change-btn">
+            <div className="Avatar-change-btn" onClick={() => setShowEditProfileImageModal(true)}>
               <Camera />
             </div>
           </div>
@@ -338,6 +341,18 @@ function Company() {
             </Row>
           </Grid>
         </Content>
+
+        <EditImageModal
+          src={CompanyBGImgURL}
+          show={showEditCoverImageModal}
+          onClosed={() => setShowEditCoverImageModal(false)}
+        />
+        <EditImageModal
+          src={CompanyAvatarURL}
+          show={showEditProfileImageModal}
+          type="logo"
+          onClosed={() => setShowEditProfileImageModal(false)}
+        />
       </Container>
     </div>
   );

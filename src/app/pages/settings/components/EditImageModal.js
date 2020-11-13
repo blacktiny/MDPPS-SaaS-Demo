@@ -40,9 +40,9 @@ function EditImageModal(props) {
     <MDPPSModal fullscreen show={show} onClosed={onClosed}>
       <Container className="page-container Edit-image">
         <Header className="Edit-image-header">
-          <h1>{type === 'cover' ? 'Edit Cover Image' : 'Edit your profile image'}</h1>
+          <h1>{type === 'cover' ? 'Edit Cover Image' : (type === 'profile' ? 'Edit your profile image' : 'Edit your Logo')}</h1>
           <p className="Edit-image-header-description">
-            To crop the image, drag it to fit the fixed region and then click “Set Cover”
+            To crop {type === 'logo' ? 'your logo' : 'the image'}, drag it to fit the fixed region and then click “Set {type === 'cover' ? 'Cover' : (type === 'profile' ? 'Photo' : 'Logo')}”
           </p>
         </Header>
         <Content className="Edit-image-content">
@@ -50,7 +50,7 @@ function EditImageModal(props) {
         </Content>
         <Footer className="Edit-image-footer">
           <div className="Edit-image-delete-btn">
-            Delete Current {type === 'cover' ? 'Cover' : 'Photo'}
+            Delete Current {type === 'cover' ? 'Cover' : (type === 'logo' ? 'Logo' : 'Photo')}
           </div>
           <div className="btn-group">
             <ButtonItem
@@ -62,7 +62,7 @@ function EditImageModal(props) {
             <ButtonItem
               className="Save-btn"
               appearance="primary"
-              title={type === 'cover' ? 'Set Cover' : 'Set Photo'}
+              title={type === 'cover' ? 'Set Cover' : (type === 'logo' ? 'Set Logo' : 'Set Photo')}
               onClick={() => onClosed()}
             />
           </div>

@@ -845,3 +845,45 @@ h4 {
     }
   }
 }
+
+// ----- MDPPS Dropzone ----- //
+.MDPPS-dropzone {
+  position: relative;
+  margin-bottom: 25px;
+
+  .dropzone {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px dashed #b6d0fd;
+    background-color: @input-default-bg;
+    padding: 10px 15px;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    svg {
+      margin-right: 12px;
+    }
+
+    p {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px;
+      color: @color-dark3;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+      border-radius: 4px;
+      background-color: @color-blue;
+      box-sizing: border-box;
+      font-family: @font-bold;
+      color: #f3f3f4;
+      text-align: center;
+      line-height: normal;
+      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+      padding-top: 7px;
+      margin-left: auto;
+    }
+  }
+}

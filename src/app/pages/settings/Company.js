@@ -11,7 +11,8 @@ import {
   MDPPSSelect,
   SelectPickerItem,
   SelectCustomPickerItem,
-  ButtonItem
+  ButtonItem,
+  PDFUploadDropzone
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import CompanyOfficialList from './components/CompanyOfficialList';
@@ -306,6 +307,16 @@ function Company() {
                       />
                     </Col>
                   </Row>
+                  <PDFUploadDropzone
+                    title={'Business License or Tax Certification'}
+                    required
+                  />
+                  <PDFUploadDropzone
+                    title={'Form W-9'}
+                  />
+                  <PDFUploadDropzone
+                    title={'Resale Tax Exemption Certificate'}
+                  />
                 </InputGroup>
               </Col>
 

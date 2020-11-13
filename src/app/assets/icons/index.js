@@ -13,3 +13,4 @@ export { default as PreviewProfile } from './PreviewProfile';
 export { default as Camera } from './Camera';
 export { default as InputVerified } from './InputVerified';
 export { default as InputEye } from './InputEye';
+export { default as CloudUpload } from './CloudUpload';

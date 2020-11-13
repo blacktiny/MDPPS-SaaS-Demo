@@ -5,6 +5,7 @@ export { default as TextInputItem } from './TextInputItem';
 export { default as TextareaInputItem } from './TextareaInputItem';
 export { default as PhoneNumberInputItem } from './PhoneNumberInputItem';
 export { default as DatePickerItem } from './DatePickerItem';
+export { default as MDPPSSelect } from './Select';
 export { default as SelectPickerItem } from './SelectPickerItem';
 export { default as SelectCustomPickerItem } from './SelectCustomPickerItem';
 export { default as TimezonePickerItem } from './TimezonePickerItem';

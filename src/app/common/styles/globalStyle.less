@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto Medium', 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', 'Roboto', sans-serif;
 }
 
 h1 {
@@ -107,6 +107,7 @@ h4 {
   margin-bottom: 2em;
 
   &-title {
+    font-family: @font-medium;
     font-size: 16px;
     font-weight: 500;
     color: @color-dark2;
@@ -123,6 +124,7 @@ h4 {
 
   &-title {
     height: 20px;
+    font-family: @font-medium;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -708,11 +710,99 @@ h4 {
 }
 
 .rs-modal-title {
+  font-family: @font-medium;
   color: black !important;
 }
 
 .rs-modal-body {
   p {
     font-size: 14px;
+  }
+}
+
+// ----- Checkbox ----- //
+.rs-checkbox-checker {
+  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-left: 18px;
+  min-height: 16px;
+}
+
+.rs-checkbox-wrapper {
+  width: 16px;
+  height: 16px;
+  left: -10px;
+  top: 1px;
+}
+
+.rs-checkbox-wrapper::before {
+  border: 1px solid #4284fc;
+}
+
+.rs-checkbox .rs-checkbox-inner::before {
+  border-color: #4284fc;
+}
+
+.rs-checkbox-checker:hover .rs-checkbox-wrapper .rs-checkbox-inner::before {
+  border-color: #4284fc;
+}
+
+.rs-checkbox-checked .rs-checkbox-wrapper .rs-checkbox-inner::before, .rs-checkbox-indeterminate .rs-checkbox-wrapper .rs-checkbox-inner::before {
+  background-color: #4284fc;
+}
+
+:hover.rs-checkbox-wrapper [type='checkbox']:focus ~ .rs-checkbox-inner::before {
+  -webkit-box-shadow: 0 0 0 2px rgba(54, 130, 244, 0.4);
+  box-shadow: 0 0 0 2px rgba(54, 130, 244, 0.4);
+}
+
+.rs-checkbox-checked .rs-checkbox-wrapper .rs-checkbox-inner::before, .rs-checkbox-indeterminate .rs-checkbox-wrapper .rs-checkbox-inner::before {
+  border-color: #4284fc;
+  background-color: #4284fc;
+}
+
+// ----- MDPPS Select ----- //
+.mdpps-select {
+  &__control {
+    height: 50px;
+    font-size: 13px !important;
+    color: black !important;
+    background-color: @input-default-bg !important;
+    border-color: transparent !important;
+    border-radius: 3px !important;
+    box-shadow: none !important;
+
+    &:hover {
+      background-color: @input-hover-bg !important;
+      cursor: pointer;
+    }
+
+    &--is-focused {
+      // background-color: white !important;
+
+      &.mdpps-select__control--menu-is-open {
+        border-color: @color-blue !important;
+
+        &:hover {
+          background-color: white !important;
+        }
+      }
+    }
+
+    &--menu-is-open {
+      background-color: white !important;
+    }
+  }
+
+  &__value-container {
+    padding-left: 15px !important;
+  }
+
+  &__single-value {
+    color: black !important;
+  }
+
+  &__indicator-separator {
+    display: none;
   }
 }

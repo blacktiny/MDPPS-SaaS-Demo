@@ -9,6 +9,7 @@ import {
   TextInputItem,
   TextareaInputItem,
   SelectPickerItem,
+  SelectCustomPickerItem,
   ButtonItem
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
@@ -21,7 +22,9 @@ import {
   TaxIDTypeSelectData,
   AnnualRevenueSelectData,
   AnnualMarketingBudgetSelectData,
-  EmployeesNumSelectData
+  EmployeesNumSelectData,
+  HeadquartersSelectData,
+  OriginSelectData
 } from '../../common/utils/constants';
 import { saveProfile } from '../../common/actions'
 
@@ -40,8 +43,10 @@ function Company() {
   const [about, setAbout] = useState('')
   const [website, setWebsite] = useState('https://www.fass.com')
   const [socialAccounts, setSocialAccounts] = useState(AllSocialAccounts)
-  // const [quarterAddrType, setQuarterAddrType] = useState('headquarter')
-  // const [quarterAddress, setQuarterAddress] = useState('')
+  const [quarterAddrType, setQuarterAddrType] = useState('headquarters')
+  const [quarterAddress, setQuarterAddress] = useState('')
+  const [originType, setOriginType] = useState('made')
+  const [originAddress, setOriginAddress] = useState('')
   const [isAllValidate, setIsAllValidate] = useState(false)
 
   // handler for the input item change event
@@ -242,21 +247,40 @@ function Company() {
                   />
                   <Row>
                     <Col xs={7}>
-                      <SelectPickerItem
+                      <SelectCustomPickerItem
                         title={'Headquarters / Territory'}
-                        value={taxIDType}
-                        data={TaxIDTypeSelectData}
+                        value={quarterAddrType}
+                        data={HeadquartersSelectData}
                         // eslint-disable-next-line no-unused-vars
-                        onChange={(value, _event) => setTaxIDType(value)}
-                        required
+                        onChange={(value, _event) => setQuarterAddrType(value)}
                       />
                     </Col>
                     <Col xs={16} xsPush={1}>
                       <TextInputItem
                         title={''}
-                        value={taxIDNumber}
+                        value={quarterAddress}
                         placeholder={'e.g. Cupertino, CA'}
-                        onChanged={value => inputItemChanged(value, setTaxIDNumber)}
+                        onChanged={value => inputItemChanged(value, setQuarterAddress)}
+                        required
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={7}>
+                      <SelectCustomPickerItem
+                        title={'Origin'}
+                        value={originType}
+                        data={OriginSelectData}
+                        // eslint-disable-next-line no-unused-vars
+                        onChange={(value, _event) => setOriginType(value)}
+                      />
+                    </Col>
+                    <Col xs={16} xsPush={1}>
+                      <TextInputItem
+                        title={''}
+                        value={originAddress}
+                        placeholder={'e.g. United States'}
+                        onChanged={value => inputItemChanged(value, setOriginAddress)}
                         required
                       />
                     </Col>

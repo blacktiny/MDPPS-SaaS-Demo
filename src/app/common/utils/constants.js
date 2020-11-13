@@ -266,14 +266,40 @@ export const EmployeesNumSelectData = [
 export const HeadquartersSelectData = [
   {
     label: 'Corporate Office',
-    value: 'corporate'
+    value: 'corporate',
+    groupBy: 'origin'
   },
   {
     label: 'Headquarters',
-    value: 'headquarters'
+    value: 'headquarters',
+    groupBy: 'origin'
   },
   {
     label: 'Home Office',
-    value: 'home'
+    value: 'home',
+    groupBy: 'origin'
+  }
+]
+
+export const OriginSelectData = [
+  {
+    label: 'Made in',
+    value: 'made',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Manufactured in',
+    value: 'manufactured',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Developed in',
+    value: 'developed',
+    groupBy: 'origin'
+  },
+  {
+    label: 'Designed in',
+    value: 'designed',
+    groupBy: 'origin'
   }
 ]

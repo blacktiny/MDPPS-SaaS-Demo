@@ -4,6 +4,8 @@ body {
 
 h4 {
   font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
 }
 
 .col {
@@ -445,6 +447,7 @@ h4 {
 .rs-picker-menu {
   .rs-picker-select-menu-item {
     font-size: 12px;
+    padding-left: 22px;
   }
 
   .rs-picker-select-menu-item.rs-picker-select-menu-item-active,
@@ -458,6 +461,98 @@ h4 {
     color: @color-blue !important;
     background-color: #f7faff;
     text-decoration: none;
+  }
+}
+
+// ----- Select Custom Picker Item ----- //
+.Select-custom-item {
+  position: relative;
+  margin-bottom: 35px;
+  
+  &-content {
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    &.opened {
+      border: 1px solid @color-blue;
+
+      .rs-picker-select {
+        background-color: white;
+      }
+    }
+  }
+}
+
+.Select-custom-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+
+  &.divider {
+    pointer-events: none;
+
+    .rs-divider {
+      width: calc(100% + 24px);
+      margin: 0 -12px;
+    }
+  }
+
+  &.add-btn {
+    color: @color-blue;
+
+    &:hover {
+      cursor: pointer;
+
+      p {
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      font-size: 18px;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+  }
+
+  &.custom {
+    position: relative;
+
+    h4 {
+      margin-right: 5px;
+    }
+
+    .custom-btn {
+      position: absolute;
+      display: none;
+      padding: 0 5px;
+
+      &.edit-btn {
+        right: 25px;
+      }
+
+      &.trash-btn {
+        right: 5px;
+      }
+    }
+
+    &:hover {
+      .custom-btn {
+        display: block;
+      }
+    }
+  }
+}
+
+.select-custom-menu {
+  .rs-picker-select-menu-item {
+    padding: 0;
+  }
+
+  .rs-picker-select-menu-item-disabled {
+    cursor: default;
   }
 }
 

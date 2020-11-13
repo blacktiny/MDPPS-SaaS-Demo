@@ -35,6 +35,7 @@ function SocialAccountListItem(props) {
               if (value !== newValue) onChanged(value, newValue, accountURL)
             }
           }
+          menuClassName="select-social-menu"
           renderMenuItem={(label, item) => {
             return (
               <div className="row Social-select-menu-item">

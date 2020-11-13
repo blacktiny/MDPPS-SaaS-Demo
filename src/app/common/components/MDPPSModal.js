@@ -18,11 +18,14 @@ function MDPPSModal(props) {
   }
 
   return (
-    <Container className="MDPPS-modal" onClick={onClosed}>
-      <Modal {...restProps} onHide={onClosed}>
-        {children}
-      </Modal>
-    </Container>
+    <Modal
+      dialogClassName="MDPPS-modal none-fullscreen"
+      show={show}
+      onHide={onClosed}
+      {...restProps}
+    >
+      {children}
+    </Modal>
   );
 }
 

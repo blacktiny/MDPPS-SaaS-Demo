@@ -1,7 +1,13 @@
 import { clearSettingsNotification } from './CommonAction'
-import { saveProfile } from './ProfileAction'
+import {
+  changeEmail,
+  finishEmailChange,
+  saveProfile
+} from './ProfileAction'
 
 export {
+  changeEmail,
+  finishEmailChange,
   clearSettingsNotification,
   saveProfile
 }

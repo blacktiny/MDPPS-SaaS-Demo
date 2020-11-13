@@ -54,7 +54,7 @@ function EditImageModal(props) {
           </div>
           <div className="btn-group">
             <ButtonItem
-              className="Cancel-btn"
+              className="Default-btn"
               appearance="default"
               title="Cancel"
               onClick={() => onClosed()}

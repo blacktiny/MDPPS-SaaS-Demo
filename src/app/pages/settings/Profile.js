@@ -16,6 +16,8 @@ import {
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import EditImageModal from './components/EditImageModal';
+import EmailChangeModal from './components/EmailChangeModal';
+import PhoneChangeModal from './components/PhoneChangeModal';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
 import { Camera, PreviewProfile, InputEye, InputVerified } from '../../assets/icons';
@@ -49,6 +51,8 @@ function Profile(props) {
   const [isAllValidate, setIsAllValidate] = useState(false)
   const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
   const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
+  const [showChangeEmailModal, setShowChangeEmailModal] = useState(false)
+  const [showChangePhoneModal, setShowChangePhoneModal] = useState(false)
 
   // handler for the Password strength input event
   useEffect(() => {
@@ -148,7 +152,10 @@ function Profile(props) {
                     title={'Email Address'}
                     value={emailAddress}
                     extraContentEle={(
-                      <div className="Modal-link-btn">Change</div>
+                      <div
+                        className="Modal-link-btn"
+                        onClick={() => setShowChangeEmailModal(true)}
+                      >Change</div>
                     )}
                     inputSuffixEle={(
                       <div className="verified">
@@ -162,7 +169,10 @@ function Profile(props) {
                     title={'Mobile Number'}
                     value={mobilePhone}
                     extraContentEle={(
-                      <div className="Modal-link-btn phone-number">Change</div>
+                      <div
+                        className="Modal-link-btn phone-number"
+                        onClick={() => setShowChangePhoneModal(true)}
+                      >Change</div>
                     )}
                     inputSuffixEle={(
                       <div className="verified">
@@ -346,7 +356,7 @@ function Profile(props) {
                     </div>
                     <div className="btn-group">
                       <ButtonItem
-                        className="Cancel-btn"
+                        className="Default-btn"
                         appearance="default"
                         title="Cancel"
                       />
@@ -375,6 +385,14 @@ function Profile(props) {
         show={showEditProfileImageModal}
         type="profile"
         onClosed={() => setShowEditProfileImageModal(false)}
+      />
+      <EmailChangeModal
+        show={showChangeEmailModal}
+        onClosed={() => setShowChangeEmailModal(false)}
+      />
+      <PhoneChangeModal
+        show={showChangePhoneModal}
+        onClosed={() => setShowChangePhoneModal(false)}
       />
     </div>
   );

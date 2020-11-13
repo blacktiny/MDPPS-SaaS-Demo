@@ -676,6 +676,21 @@ h4 {
     background-color: white;
   }
 
+  &.none-fullscreen {
+    .Default-btn,
+    .Save-btn {
+      width: 120px;
+      height: 40px;
+    }
+
+    .Default-btn {
+      margin-left: auto;
+    }
+    .Save-btn {
+      margin-left: 30px;
+    }
+  }
+
   &-close-btn {
     position: absolute;
     top: 30px;
@@ -685,5 +700,19 @@ h4 {
     i {
       font-size: 40px;
     }
+  }
+}
+
+.rs-modal-content {
+  padding: 40px 30px 40px 40px;
+}
+
+.rs-modal-title {
+  color: black !important;
+}
+
+.rs-modal-body {
+  p {
+    font-size: 14px;
   }
 }

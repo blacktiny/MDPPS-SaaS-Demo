@@ -36,6 +36,30 @@
     margin-left: 30px;
     border-radius: 5px;
   }
+
+  @media (max-width: 768px) {
+    .rs-sidebar {
+      flex: 0 0 60px !important;
+      width: 60px !important;
+    }
+
+    &-content {
+      width: calc(100% - 80px);
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rs-sidebar {
+      flex: 0 0 45px !important;
+      width: 45px !important;
+    }
+
+    &-content {
+      width: calc(100% - 55px);
+      margin-left: 10px;
+    }
+  }
 }
 
 .Group-name {

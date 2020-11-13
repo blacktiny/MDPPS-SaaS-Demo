@@ -118,7 +118,7 @@ function Company() {
         <Content className="Profile-content">
           <Grid fluid>
             <Row>
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Company Information'}>
                   <TextInputItem
                     title={'Legal Name'}
@@ -288,7 +288,7 @@ function Company() {
                 </InputGroup>
               </Col>
 
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <div className="col">
                   {isAllValidate && (
                     <Container className="Validate-list">

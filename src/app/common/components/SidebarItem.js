@@ -23,9 +23,14 @@ const ItemName = styled.div`
   font-size: 14px;
   padding-left: 25px;
   text-decoration: none !important;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const SidebarItemContainer = styled(Link)`
+  display: flex;
   position: relative;
   width: 100%;
   height: 50px;
@@ -62,6 +67,16 @@ const SidebarItemContainer = styled(Link)`
       path {
         fill: #4284fc;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    padding-left: 0;
+    border: none;
+
+    &.active {
+      border: none;
     }
   }
 `;

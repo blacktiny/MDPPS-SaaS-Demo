@@ -139,7 +139,7 @@ function Profile(props) {
         <Content className="Profile-content">
           <Grid fluid>
             <Row>
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Account'}>
                   <TextInputItem
                     title={'Email Address'}
@@ -226,7 +226,7 @@ function Profile(props) {
                 </InputGroup>
               </Col>
 
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Personal Information'}>
                   <TextInputItem
                     title={'First Name'}
@@ -275,10 +275,10 @@ function Profile(props) {
                 </InputGroup>
               </Col>
 
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <InputGroup title={'Localization'}>
                   <Row>
-                    <Col xs={11}>
+                    <Col xs={24} sm={11}>
                       <SelectPickerItem
                         title={'Language'}
                         value={language}
@@ -287,7 +287,7 @@ function Profile(props) {
                         onChange={(value, _event) => setLanguage(value)}
                       />
                     </Col>
-                    <Col xs={11} xsPush={2}>
+                    <Col xs={24} sm={11} smPush={2}>
                       <SelectPickerItem
                         title={'Currency'}
                         value={currency}
@@ -310,7 +310,7 @@ function Profile(props) {
                 </InputGroup>
               </Col>
 
-              <Col xs={20} xsPull={2} xsPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
                 <div className="col">
                   {isAllValidate && (
                     <Container className="Validate-list">
@@ -332,7 +332,7 @@ function Profile(props) {
                       <Divider />
                     </Container>
                   )}
-                  <div className="row">
+                  <div className="profile-submit-btn-group">
                     <div
                       className={"All-validate-btn " + (allValidate.length > 0 ? 'has-error' : '')}
                       onClick={() => {
@@ -341,17 +341,19 @@ function Profile(props) {
                     >
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
                     </div>
-                    <ButtonItem
-                      className="Cancel-btn"
-                      appearance="default"
-                      title="Cancel"
-                    />
-                    <ButtonItem
-                      className="Save-btn"
-                      appearance="primary"
-                      title="Save Changes"
-                      onClick={() => saveProfile()}
-                    />
+                    <div className="btn-group">
+                      <ButtonItem
+                        className="Cancel-btn"
+                        appearance="default"
+                        title="Cancel"
+                      />
+                      <ButtonItem
+                        className="Save-btn"
+                        appearance="primary"
+                        title="Save Changes"
+                        onClick={() => saveProfile()}
+                      />
+                    </div>
                   </div>
                 </div>
               </Col>

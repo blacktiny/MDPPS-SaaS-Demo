@@ -115,6 +115,10 @@
     font-size: 24px;
     color: white;
   }
+
+  @media (max-width: 480px) {
+    padding: 0 5%;
+  }
 }
 
 .Profile-content {
@@ -250,21 +254,70 @@
   }
 }
 
-.Cancel-btn {
+.profile-submit-btn-group {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .All-validate-btn {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.btn-group {
+  display: flex;
+  margin-left: auto;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-left: 0;
+
+    .Cancel-btn,
+    .Save-btn {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+
+    .Cancel-btn {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .Save-btn {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+.Cancel-btn,
+.Save-btn {
   width: 260px;
   height: 50px;
+
+  @media (max-width: 1200px) {
+    width: 200px;
+  }
+}
+
+.Cancel-btn {
   border-radius: 5px;
   border: 1px solid #dde3e9;
   background-color: #ffffff;
   box-sizing: border-box;
   font-weight: 700;
   color: #657786;
-  margin-left: auto;
 }
 
 .Save-btn {
-  width: 260px;
-  height: 50px;
   border-radius: 4px;
   background-color: #4284fc;
   box-sizing: border-box;

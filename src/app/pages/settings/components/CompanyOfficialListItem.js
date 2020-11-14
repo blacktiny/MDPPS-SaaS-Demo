@@ -1,14 +1,24 @@
 import React, { useCallback } from 'react';
 import { Row, Col, Icon, Divider } from 'rsuite';
 import { components } from 'react-select';
-import { MDPPSSelect, SelectCustomPickerItem } from '../../../common/components';
-import { TeamMemberSelectData, DesignationSelectData } from '../../../common/utils/constants';
+import {
+  MDPPSSelect,
+  SelectCustomPickerItem,
+} from '../../../common/components';
+import {
+  TeamMemberSelectData,
+  DesignationSelectData,
+} from '../../../common/utils/constants';
 
 export const ValueContainer = ({ children, ...props }) => {
   return (
     <components.ValueContainer {...props}>
-      <div className="mdpps-select-search-icon"><Icon icon="search" /></div>
-      <div style={{ display: 'flex', width: 'calc(100% - 60px)'}}>{children}</div>
+      <div className="mdpps-select-search-icon">
+        <Icon icon="search" />
+      </div>
+      <div style={{ display: 'flex', width: 'calc(100% - 60px)' }}>
+        {children}
+      </div>
     </components.ValueContainer>
   );
 };
@@ -24,20 +34,30 @@ const MenuList = props => {
       </div>
     </components.MenuList>
   );
-}
+};
 
 function CompanyOfficialListItem(props) {
-  const { data: { id, member, designation }, hasRemoveBtn, onChanged } = props;
+  const {
+    data: { id, member, designation },
+    hasRemoveBtn,
+    onChanged,
+  } = props;
 
   // handler for team member update event
-  const handlerTeamMemberChange = useCallback(newMember => {
-    onChanged({ id, newMember, designation })
-  }, [id, designation])
+  const handlerTeamMemberChange = useCallback(
+    newMember => {
+      onChanged({ id, newMember, designation });
+    },
+    [id, designation]
+  );
 
   // handler for designation update event
-  const handlerDesignationChange = useCallback(newDesignation => {
-    onChanged({ id, member, designation: newDesignation })
-  }, [id, member])
+  const handlerDesignationChange = useCallback(
+    newDesignation => {
+      onChanged({ id, member, designation: newDesignation });
+    },
+    [id, member]
+  );
 
   return (
     <Row className="Official-list-item">
@@ -45,7 +65,6 @@ function CompanyOfficialListItem(props) {
         <MDPPSSelect
           options={TeamMemberSelectData}
           value={member}
-          // eslint-disable-next-line no-unused-vars
           onChanged={(value, _event) => handlerTeamMemberChange(value)}
           components={{ ValueContainer, MenuList }}
         />
@@ -57,16 +76,14 @@ function CompanyOfficialListItem(props) {
           onChanged={item => handlerDesignationChange(item)}
         />
       </Col>
-      {
-        hasRemoveBtn && (
-          <div
-            className="Official-list-item-remove-btn"
-            onClick={() => onChanged({ id })}
-          >
-            <Icon icon="close" />
-          </div>
-        )
-      }
+      {hasRemoveBtn && (
+        <div
+          className="Official-list-item-remove-btn"
+          onClick={() => onChanged({ id })}
+        >
+          <Icon icon="close" />
+        </div>
+      )}
     </Row>
   );
 }

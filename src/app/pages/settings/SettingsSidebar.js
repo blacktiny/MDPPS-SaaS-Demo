@@ -1,6 +1,6 @@
 import React from 'react';
-import SidebarItem from '../../common/components/SidebarItem'
-import { SettingsItems } from '../../common/utils/constants'
+import SidebarItem from '../../common/components/SidebarItem';
+import { SettingsItems } from '../../common/utils/constants';
 
 function SettingsSidebar(props) {
   const { type } = props;
@@ -10,7 +10,7 @@ function SettingsSidebar(props) {
       {SettingsItems.map((item, index) => {
         return (
           <SidebarItem key={index} item={item} isActive={item.id === type} />
-        )
+        );
       })}
     </div>
   );

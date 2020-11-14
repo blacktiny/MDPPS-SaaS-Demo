@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { Container, Content, Footer, Header } from 'rsuite';
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input';
+import PhoneInput, {
+  formatPhoneNumber,
+  isValidPhoneNumber,
+} from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 function PhoneNumberInputItem(props) {
@@ -13,35 +16,37 @@ function PhoneNumberInputItem(props) {
     onChanged = () => {},
     noCaret,
     disabled,
-    required
+    required,
   } = props;
 
-  const [isEmpty, setIsEmpty] = useState(false)
-  const [isValid, setIsValid] = useState(true)
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isValid, setIsValid] = useState(true);
 
   // handler for input blur event
   const handleInputBlur = useCallback(() => {
-    const local = formatPhoneNumber(value)
+    const local = formatPhoneNumber(value);
 
     if (local) {
-      setIsEmpty(false)
-      setIsValid(isValidPhoneNumber(value))
+      setIsEmpty(false);
+      setIsValid(isValidPhoneNumber(value));
     } else {
-      setIsEmpty(true)
-      setIsValid(true)
+      setIsEmpty(true);
+      setIsValid(true);
     }
-  }, [required, value])
+  }, [required, value]);
 
   return (
     <Container className="Phone-number-item">
       <Header className="Input-item-title">
         {title}
-        {(title && required) && <span className="required">&nbsp;*</span>}
+        {title && required && <span className="required">&nbsp;*</span>}
       </Header>
 
       <Content
         className={
-          "Phone-number-item-content " + (isEmpty ? 'empty ' : (isValid ? '' : 'invalid')) + (disabled ? 'disabled' : '')
+          'Phone-number-item-content ' +
+          (isEmpty ? 'empty ' : isValid ? '' : 'invalid') +
+          (disabled ? 'disabled' : '')
         }
       >
         <PhoneInput
@@ -60,7 +65,7 @@ function PhoneNumberInputItem(props) {
       </Content>
 
       <Footer>
-        {(isEmpty && required) && <p className="Input-item-error">{errorMsg}</p>}
+        {isEmpty && required && <p className="Input-item-error">{errorMsg}</p>}
       </Footer>
     </Container>
   );

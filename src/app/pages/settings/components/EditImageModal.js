@@ -7,7 +7,7 @@ import 'cropperjs/dist/cropper.min.css';
 function ImageCropper(props) {
   const { src, onImageDestinationChanged } = props;
 
-  const imageEleRef = createRef()
+  const imageEleRef = createRef();
 
   useEffect(() => {
     if (imageEleRef.current) {
@@ -17,32 +17,41 @@ function ImageCropper(props) {
         // aspectRatio: 1,
         crop: () => {
           const canvas = cropper.getCroppedCanvas();
-          onImageDestinationChanged(canvas.toDataURL("image/png"))
-        }
+          onImageDestinationChanged(canvas.toDataURL('image/png'));
+        },
       });
     }
-  }, [imageEleRef.current])
+  }, [imageEleRef.current]);
 
   return (
     <div className="image-cropper">
       <img ref={imageEleRef} src={src} crossOrigin />
     </div>
-  )
+  );
 }
 
 function EditImageModal(props) {
   const { src, show, onClosed, type = 'cover' } = props;
 
-  // eslint-disable-next-line no-unused-vars
-  const [cropedImage, setCropedImage] = useState('')
+  const [cropedImage, setCropedImage] = useState('');
+  console.log('cropedImage = ', cropedImage);
 
   return (
     <Modal fullscreen show={show} onClosed={onClosed}>
       <Container className="page-container Edit-image">
         <Header className="Edit-image-header">
-          <h1>{type === 'cover' ? 'Edit Cover Image' : (type === 'profile' ? 'Edit your profile image' : 'Edit your Logo')}</h1>
+          <h1>
+            {type === 'cover'
+              ? 'Edit Cover Image'
+              : type === 'profile'
+              ? 'Edit your profile image'
+              : 'Edit your Logo'}
+          </h1>
           <p className="Edit-image-header-description">
-            To crop {type === 'logo' ? 'your logo' : 'the image'}, drag it to fit the fixed region and then click “Set {type === 'cover' ? 'Cover' : (type === 'profile' ? 'Photo' : 'Logo')}”
+            To crop {type === 'logo' ? 'your logo' : 'the image'}, drag it to
+            fit the fixed region and then click “Set{' '}
+            {type === 'cover' ? 'Cover' : type === 'profile' ? 'Photo' : 'Logo'}
+            ”
           </p>
         </Header>
         <Content className="Edit-image-content">
@@ -50,7 +59,8 @@ function EditImageModal(props) {
         </Content>
         <Footer className="Edit-image-footer">
           <div className="Edit-image-delete-btn">
-            Delete Current {type === 'cover' ? 'Cover' : (type === 'logo' ? 'Logo' : 'Photo')}
+            Delete Current{' '}
+            {type === 'cover' ? 'Cover' : type === 'logo' ? 'Logo' : 'Photo'}
           </div>
           <div className="btn-group">
             <Button
@@ -62,14 +72,20 @@ function EditImageModal(props) {
             <Button
               className="Save-btn"
               appearance="primary"
-              title={type === 'cover' ? 'Set Cover' : (type === 'logo' ? 'Set Logo' : 'Set Photo')}
+              title={
+                type === 'cover'
+                  ? 'Set Cover'
+                  : type === 'logo'
+                  ? 'Set Logo'
+                  : 'Set Photo'
+              }
               onClick={() => onClosed()}
             />
           </div>
         </Footer>
       </Container>
     </Modal>
-  )
+  );
 }
 
 export default EditImageModal;

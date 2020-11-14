@@ -14,7 +14,7 @@ function MDPPSModal(props) {
           <Icon icon="close" />
         </div>
       </Container>
-    )
+    );
   }
 
   return (

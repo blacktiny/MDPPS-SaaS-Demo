@@ -2,12 +2,16 @@ import React, { useMemo, useState } from 'react';
 import { Modal } from 'rsuite';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, TextInputItem, Modal as MDPPSModal } from '../../../common/components';
-import { changeEmail, finishEmailChange } from '../../../common/actions'
+import {
+  Button,
+  TextInputItem,
+  Modal as MDPPSModal,
+} from '../../../common/components';
+import { changeEmail, finishEmailChange } from '../../../common/actions';
 
 function EmailInputPage(props) {
   const { onNext, onClosed } = props;
-  const [changeEmailAddr, setChangeEmailAddr] = useState('')
+  const [changeEmailAddr, setChangeEmailAddr] = useState('');
   // const [isValidated, setIsValidated] = useState(false)
 
   return (
@@ -17,9 +21,10 @@ function EmailInputPage(props) {
       </Modal.Header>
       <Modal.Body>
         <p style={{ fontSize: 14, lineHeight: '25px', color: 'black' }}>
-          Enter the new email address you would like to associate with your 
-          account below. We’ll send a One Time Password (OTP) to that address. 
-          We recommend using your company email address for verification and security.
+          Enter the new email address you would like to associate with your
+          account below. We’ll send a One Time Password (OTP) to that address.
+          We recommend using your company email address for verification and
+          security.
         </p>
         <TextInputItem
           value={changeEmailAddr}
@@ -47,12 +52,12 @@ function EmailInputPage(props) {
         </div>
       </Modal.Footer>
     </div>
-  )
+  );
 }
 
 export function OTPCodeInputPage(props) {
   const { onNext, onClosed } = props;
-  const [otpCode, setOtpCode] = useState('')
+  const [otpCode, setOtpCode] = useState('');
   // const [isValidated, setIsValidated] = useState(false)
 
   return (
@@ -61,9 +66,18 @@ export function OTPCodeInputPage(props) {
         <Modal.Title>Confirm Your Request</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p style={{ fontSize: 14, lineHeight: '25px', color: 'black', marginBottom: 30 }}>
-          For your security we need to authenticate your request. We`ve sent a One 
-          Time Password (OTP) to <span style={{ fontWeight: 'bold' }}>you@companyname.com</span>. Please enter it below.
+        <p
+          style={{
+            fontSize: 14,
+            lineHeight: '25px',
+            color: 'black',
+            marginBottom: 30,
+          }}
+        >
+          For your security we need to authenticate your request. We`ve sent a
+          One Time Password (OTP) to{' '}
+          <span style={{ fontWeight: 'bold' }}>you@companyname.com</span>.
+          Please enter it below.
         </p>
         <TextInputItem
           title={'Enter OTP'}
@@ -71,9 +85,11 @@ export function OTPCodeInputPage(props) {
           errorMsg={'Please check your inbox and enter the OTP password given'}
           onChange={setOtpCode}
           // doValidate={isValidated}
-          extraContentEle={(
-            <div className="Input-description">Next OTP can be sent in 0:29</div>
-          )}
+          extraContentEle={
+            <div className="Input-description">
+              Next OTP can be sent in 0:29
+            </div>
+          }
           required
         />
       </Modal.Body>
@@ -94,7 +110,7 @@ export function OTPCodeInputPage(props) {
         </div>
       </Modal.Footer>
     </div>
-  )
+  );
 }
 
 export function FinishPage(props) {
@@ -106,7 +122,14 @@ export function FinishPage(props) {
         <Modal.Title>Thank You!</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p style={{ fontSize: 14, lineHeight: '25px', color: 'black', marginBottom: 30 }}>
+        <p
+          style={{
+            fontSize: 14,
+            lineHeight: '25px',
+            color: 'black',
+            marginBottom: 30,
+          }}
+        >
           Your email address / phone number has been successfully changed.
         </p>
       </Modal.Body>
@@ -121,18 +144,16 @@ export function FinishPage(props) {
         </div>
       </Modal.Footer>
     </div>
-  )
+  );
 }
 
 function EmailChangeModal(props) {
   const {
     show,
     onClosed,
-    profile: {
-      emailChangeStep
-    },
+    profile: { emailChangeStep },
     changeEmail,
-    finishEmailChange
+    finishEmailChange,
   } = props;
 
   const modalContent = useMemo(() => {
@@ -140,48 +161,46 @@ function EmailChangeModal(props) {
       case 'email':
         return (
           <EmailInputPage
-            onNext={
-              email => changeEmail({
+            onNext={email =>
+              changeEmail({
                 step: 'email',
-                email
+                email,
               })
             }
             onClosed={onClosed}
           />
-        )
+        );
       case 'otp':
         return (
           <OTPCodeInputPage
-            onNext={
-              otpCode => changeEmail({
+            onNext={otpCode =>
+              changeEmail({
                 step: 'otp',
-                otpCode
+                otpCode,
               })
             }
             onClosed={onClosed}
           />
-        )
+        );
       case 'finish':
         return (
-          <FinishPage onClosed={
-            () => {
-              finishEmailChange()
-              onClosed()
-            }
-          }/>
-        )
+          <FinishPage
+            onClosed={() => {
+              finishEmailChange();
+              onClosed();
+            }}
+          />
+        );
       default:
-        return <>Empty</>
+        return <>Empty</>;
     }
-  }, [emailChangeStep])
+  }, [emailChangeStep]);
 
   return (
     <MDPPSModal show={show} onClosed={onClosed}>
-      <div className="Email-change">
-        {modalContent}
-      </div>
+      <div className="Email-change">{modalContent}</div>
     </MDPPSModal>
-  )
+  );
 }
 
 function mapStateToProps(state) {
@@ -195,7 +214,7 @@ export default connect(mapStateToProps, dispatch => ({
   ...bindActionCreators(
     {
       changeEmail,
-      finishEmailChange
+      finishEmailChange,
     },
     dispatch
   ),

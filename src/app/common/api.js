@@ -1,17 +1,17 @@
 // API
-import actionTypes from './actionTypes'
+import actionTypes from './actionTypes';
 
-export const api = (action) => async (dispatch) => {
-  let { type, data } = action
+export const api = action => async dispatch => {
+  let { type, data } = action;
 
-  let respActionType = ''
+  let respActionType = '';
 
   switch (type) {
     case actionTypes.SETTINGS_PROFILE_EMAIL_CHANGE:
       if (data.step === 'email')
-        respActionType = actionTypes.SETTINGS_PROFILE_OTP_CODE_REQUEST
+        respActionType = actionTypes.SETTINGS_PROFILE_OTP_CODE_REQUEST;
       else if (data.step === 'otp')
-        respActionType = actionTypes.SETTINGS_PROFILE_EMAIL_CHANGE_SUCCESS
+        respActionType = actionTypes.SETTINGS_PROFILE_EMAIL_CHANGE_SUCCESS;
       break;
 
     default:
@@ -22,6 +22,6 @@ export const api = (action) => async (dispatch) => {
 
   dispatch({
     type: respActionType,
-    data
-  })
-}
+    data,
+  });
+};

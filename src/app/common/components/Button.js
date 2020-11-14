@@ -5,7 +5,9 @@ function MDPPSButton(props) {
   const { title, ...restProps } = props;
 
   return (
-    <Button id="mdpps-button" {...restProps}>{title}</Button>
+    <Button id="mdpps-button" {...restProps}>
+      {title}
+    </Button>
   );
 }
 

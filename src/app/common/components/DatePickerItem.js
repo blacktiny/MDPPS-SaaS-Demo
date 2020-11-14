@@ -3,7 +3,7 @@ import { Container, Content, DatePicker, Header } from 'rsuite';
 
 function DatePickerItem(props) {
   const { title, value, onChanged, required } = props;
-  const [isOpened, setIsOpened] = useState(false)
+  const [isOpened, setIsOpened] = useState(false);
 
   const Locale = {
     sunday: 'S',
@@ -13,11 +13,11 @@ function DatePickerItem(props) {
     thursday: 'T',
     friday: 'F',
     saturday: 'S',
-  }
+  };
 
   const handlerDatePickerClicked = useCallback(() => {
-    setIsOpened(!isOpened)
-  }, [isOpened])
+    setIsOpened(!isOpened);
+  }, [isOpened]);
 
   return (
     <Container className="Date-item">
@@ -28,7 +28,7 @@ function DatePickerItem(props) {
 
       <Content onClick={handlerDatePickerClicked}>
         <DatePicker
-          className={"Date-item-toggle " + (isOpened ? 'opened' : '')}
+          className={'Date-item-toggle ' + (isOpened ? 'opened' : '')}
           appearance={'subtle'}
           cleanable={false}
           format={'MMM DD, YYYY'}

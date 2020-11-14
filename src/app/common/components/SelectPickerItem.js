@@ -12,20 +12,20 @@ function SelectPickerItem(props) {
     ...restProps
   } = props;
 
-  const [searchVal, setSearchVal] = useState('')
-  const [isOpened, setIsOpened] = useState(false)
+  const [searchVal, setSearchVal] = useState('');
+  const [isOpened, setIsOpened] = useState(false);
 
   const filteredSelectData = useMemo(() => {
     if (editable) {
-      return data.filter(item => item.value.includes(searchVal))
+      return data.filter(item => item.value.includes(searchVal));
     } else {
-      return data
+      return data;
     }
-  }, [data, editable, searchVal])
+  }, [data, editable, searchVal]);
 
   const handlerSelectPickerClicked = useCallback(() => {
-    setIsOpened(!isOpened)
-  }, [isOpened])
+    setIsOpened(!isOpened);
+  }, [isOpened]);
 
   return (
     <Container className="Select-item">
@@ -35,9 +35,7 @@ function SelectPickerItem(props) {
       </Header>
 
       <Content
-        className={
-          "Select-item-content" + (isOpened ? ' opened' : '')
-        }
+        className={'Select-item-content' + (isOpened ? ' opened' : '')}
         onClick={handlerSelectPickerClicked}
       >
         {editable && <Input onChange={setSearchVal} value={searchVal} />}

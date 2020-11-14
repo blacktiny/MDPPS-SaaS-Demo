@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Container, Header, Content } from 'rsuite';
 import RouteWithSubRoutes from './common/components/RouteWithSubRoutes';
 import routes from './common/utils/Routes';
-import store from './common/store'
+import store from './common/store';
 import 'rsuite/lib/styles/index.less';
 import './common/styles/App.less';
 

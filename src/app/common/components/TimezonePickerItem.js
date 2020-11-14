@@ -4,23 +4,16 @@ import TimezonePicker from 'react-bootstrap-timezone-picker';
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
 function TimezonePickerItem(props) {
-  const {
-    onChanged,
-    title,
-    value,
-    ...restProps
-  } = props;
+  const { onChanged, title, value, ...restProps } = props;
 
-  const [isFocused, setIsFocused] = useState(false)
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <Container className="Timezone-item">
-      <Header className="Input-item-title">
-        {title}
-      </Header>
+      <Header className="Input-item-title">{title}</Header>
 
       <Content
-        className={"Timezone-item-content " + (isFocused ? 'focused' : '')}
+        className={'Timezone-item-content ' + (isFocused ? 'focused' : '')}
       >
         <TimezonePicker
           absolute={true}

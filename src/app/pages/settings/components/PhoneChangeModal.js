@@ -2,13 +2,17 @@ import React, { useMemo, useState } from 'react';
 import { Modal } from 'rsuite';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, PhoneNumberInputItem, Modal as MDPPSModal } from '../../../common/components';
+import {
+  Button,
+  PhoneNumberInputItem,
+  Modal as MDPPSModal,
+} from '../../../common/components';
 import { OTPCodeInputPage, FinishPage } from './EmailChangeModal';
 import { changeEmail, finishEmailChange } from '../../../common/actions';
 
 function PhoneInputPage(props) {
   const { onNext, onClosed } = props;
-  const [ phoneNumber, setPhoneNumber] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('');
   // const [isValidated, setIsValidated] = useState(false)
 
   return (
@@ -18,7 +22,7 @@ function PhoneInputPage(props) {
       </Modal.Header>
       <Modal.Body>
         <p style={{ fontSize: 14, lineHeight: '25px', color: 'black' }}>
-          Enter the new phone number you would like to associate with your 
+          Enter the new phone number you would like to associate with your
           account below. We’ll send a One Time Password (OTP) to that number.
         </p>
         <PhoneNumberInputItem
@@ -47,18 +51,16 @@ function PhoneInputPage(props) {
         </div>
       </Modal.Footer>
     </div>
-  )
+  );
 }
 
 function PhoneChangeModal(props) {
   const {
     show,
     onClosed,
-    profile: {
-      emailChangeStep
-    },
+    profile: { emailChangeStep },
     changeEmail,
-    finishEmailChange
+    finishEmailChange,
   } = props;
 
   const modalContent = useMemo(() => {
@@ -66,48 +68,46 @@ function PhoneChangeModal(props) {
       case 'email':
         return (
           <PhoneInputPage
-            onNext={
-              email => changeEmail({
+            onNext={email =>
+              changeEmail({
                 step: 'email',
-                email
+                email,
               })
             }
             onClosed={onClosed}
           />
-        )
+        );
       case 'otp':
         return (
           <OTPCodeInputPage
-            onNext={
-              otpCode => changeEmail({
+            onNext={otpCode =>
+              changeEmail({
                 step: 'otp',
-                otpCode
+                otpCode,
               })
             }
             onClosed={onClosed}
           />
-        )
+        );
       case 'finish':
         return (
-          <FinishPage onClosed={
-            () => {
-              finishEmailChange()
-              onClosed()
-            }
-          }/>
-        )
+          <FinishPage
+            onClosed={() => {
+              finishEmailChange();
+              onClosed();
+            }}
+          />
+        );
       default:
-        return <>Empty</>
+        return <>Empty</>;
     }
-  }, [emailChangeStep])
+  }, [emailChangeStep]);
 
   return (
     <MDPPSModal show={show} onClosed={onClosed}>
-      <div className="Email-change">
-        {modalContent}
-      </div>
+      <div className="Email-change">{modalContent}</div>
     </MDPPSModal>
-  )
+  );
 }
 
 function mapStateToProps(state) {
@@ -121,7 +121,7 @@ export default connect(mapStateToProps, dispatch => ({
   ...bindActionCreators(
     {
       changeEmail,
-      finishEmailChange
+      finishEmailChange,
     },
     dispatch
   ),

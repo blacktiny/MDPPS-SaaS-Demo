@@ -1,6 +1,6 @@
 // import actionTypes from '../actionTypes'
-import { createProducer } from './utilities'
+import { createProducer } from './utilities';
 
-let initialState = {}
+let initialState = {};
 
-export default createProducer(initialState, {})
+export default createProducer(initialState, {});

@@ -1,19 +1,19 @@
-import Settings from '../../pages/settings'
-import Profile from '../../pages/settings/Profile.js'
-import Company from '../../pages/settings/Company'
+import Settings from '../../pages/settings';
+import Profile from '../../pages/settings/Profile.js';
+import Company from '../../pages/settings/Company';
 
 const routes = [
   {
     redirect: true,
     from: '/',
     to: '/settings/profile',
-    exact: true
+    exact: true,
   },
   {
     redirect: true,
     from: '/settings',
     to: '/settings/profile',
-    exact: true
+    exact: true,
   },
   {
     path: '/settings/:type',
@@ -29,8 +29,8 @@ const routes = [
         exact: true,
         component: Company,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export default routes;

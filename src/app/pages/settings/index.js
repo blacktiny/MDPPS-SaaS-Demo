@@ -14,10 +14,10 @@ function Settings(props) {
     routes,
     location,
     match: {
-      params: { type }
+      params: { type },
     },
     common,
-    clearSettingsNotification
+    clearSettingsNotification,
   } = props;
   const [curSettingItem, setCurSettingItem] = useState(null);
   const [isNewNotify, setIsNewNotify] = useState(false);
@@ -26,29 +26,31 @@ function Settings(props) {
   useEffect(() => {
     const settingsItem = SettingsItems.find(item => item.id === type);
     setCurSettingItem(settingsItem);
-  }, [location, type])
+  }, [location, type]);
 
   // handler for settings notification
   useEffect(() => {
     if (common.isNewNotify) {
       // eslint-disable-next-line no-undef
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
       // eslint-disable-next-line no-undef
       setTimeout(() => {
-        setIsNewNotify(true)
-      }, 100)
+        setIsNewNotify(true);
+      }, 100);
       // eslint-disable-next-line no-undef
       setTimeout(() => {
-        clearSettingsNotification()
-      }, 4000)
+        clearSettingsNotification();
+      }, 4000);
     } else {
-      setIsNewNotify(false)
+      setIsNewNotify(false);
     }
-  }, [common.isNewNotify])
+  }, [common.isNewNotify]);
 
   return (
     <div className="page-wrapper">
-      <div className={"page-notification " + (isNewNotify ? 'show' : '')}>{common.notification}</div>
+      <div className={'page-notification ' + (isNewNotify ? 'show' : '')}>
+        {common.notification}
+      </div>
 
       <Container className="col page-container Settings">
         <Header className="row Settings-header">
@@ -77,16 +79,18 @@ function Settings(props) {
 
 function mapStateToProps(state) {
   return {
-    common: state.common
+    common: state.common,
   };
 }
 
-export default withRouter(connect(mapStateToProps, dispatch => ({
-  dispatch,
-  ...bindActionCreators(
-    {
-      clearSettingsNotification
-    },
-    dispatch
-  ),
-}))(Settings));
+export default withRouter(
+  connect(mapStateToProps, dispatch => ({
+    dispatch,
+    ...bindActionCreators(
+      {
+        clearSettingsNotification,
+      },
+      dispatch
+    ),
+  }))(Settings)
+);

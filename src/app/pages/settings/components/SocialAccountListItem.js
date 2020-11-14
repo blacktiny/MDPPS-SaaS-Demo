@@ -7,34 +7,33 @@ function SocialAccountListItem(props) {
     unOpenedAccounts,
     onChanged,
     onRemoved,
-    hasRemoveBtn
+    hasRemoveBtn,
   } = props;
-  
-  const [newType, setNewType] = useState(value)
-  const [accountURL, setAccountURL] = useState(url)
-  const [isFocused, setIsFocused] = useState(false)
+
+  const [newType, setNewType] = useState(value);
+  const [accountURL, setAccountURL] = useState(url);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
-    setNewType(value)
-  }, [value])
+    setNewType(value);
+  }, [value]);
 
   useEffect(() => {
-    setAccountURL(url)
-  }, [url])
-  
+    setAccountURL(url);
+  }, [url]);
+
   return (
     <Container className="Social-list-item">
-      <Content className={"Social-list-item-content " + (isFocused ? 'focused' : '')}>
+      <Content
+        className={'Social-list-item-content ' + (isFocused ? 'focused' : '')}
+      >
         <SelectPicker
           cleanable={false}
           data={unOpenedAccounts}
-          onChange={
-            // eslint-disable-next-line no-unused-vars
-            (newValue, _event) => {
-              setNewType(newValue)
-              if (value !== newValue) onChanged(value, newValue, accountURL)
-            }
-          }
+          onChange={(newValue, _event) => {
+            setNewType(newValue);
+            if (value !== newValue) onChanged(value, newValue, accountURL);
+          }}
           menuClassName="select-social-menu"
           renderMenuItem={(label, item) => {
             return (
@@ -44,9 +43,8 @@ function SocialAccountListItem(props) {
                 </div>
                 <div className="Social-select-menu-item-label">{label}</div>
               </div>
-            )
+            );
           }}
-          // eslint-disable-next-line no-unused-vars
           renderValue={(_value, item, _selectedelement) => {
             return (
               <div className="Social-selected-menu">
@@ -54,7 +52,7 @@ function SocialAccountListItem(props) {
                   <Icon icon={item?.icon || icon} />
                 </div>
               </div>
-            )
+            );
           }}
           searchable={false}
           value={newType}
@@ -62,8 +60,8 @@ function SocialAccountListItem(props) {
         <Input
           onChange={setAccountURL}
           onBlur={() => {
-            onChanged(value, newType, accountURL)
-            setIsFocused(false)
+            onChanged(value, newType, accountURL);
+            setIsFocused(false);
           }}
           onFocus={() => setIsFocused(true)}
           placeholder={'Account URL'}
@@ -72,16 +70,14 @@ function SocialAccountListItem(props) {
       </Content>
 
       <Footer>
-        {
-          hasRemoveBtn && (
-            <div
-              className="Social-list-item-remove-btn"
-              onClick={() => onRemoved(value)}
-            >
-              <Icon icon="close" />
-            </div>
-          )
-        }
+        {hasRemoveBtn && (
+          <div
+            className="Social-list-item-remove-btn"
+            onClick={() => onRemoved(value)}
+          >
+            <Icon icon="close" />
+          </div>
+        )}
       </Footer>
     </Container>
   );

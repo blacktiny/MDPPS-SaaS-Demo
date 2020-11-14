@@ -18,29 +18,23 @@ function MDPPSSelect(props) {
     ...restProps
   } = props;
 
-  const [isValid, setIsValid] = useState(true)
+  const [isValid, setIsValid] = useState(true);
 
   const colourStyles = {
     option: (styles, { data, isFocused, isSelected }) => {
       return {
         ...styles,
-        backgroundColor: isFocused || isSelected
-          ? '#f7faff'
-          : data.color,
-        color: isFocused || isSelected
-          ? '#4284fc'
-          : data.color,
-        cursor: 'pointer'
-      }
-    }
-  }
+        backgroundColor: isFocused || isSelected ? '#f7faff' : data.color,
+        color: isFocused || isSelected ? '#4284fc' : data.color,
+        cursor: 'pointer',
+      };
+    },
+  };
 
   const doValidate = useCallback(() => {
-    if (isMulti)
-      setIsValid(value?.length > 0)
-    else
-      setIsValid(Boolean(value))
-  }, [value, isMulti])
+    if (isMulti) setIsValid(value?.length > 0);
+    else setIsValid(Boolean(value));
+  }, [value, isMulti]);
 
   return (
     <Container className="Select-item">
@@ -51,7 +45,9 @@ function MDPPSSelect(props) {
 
       <Content>
         <Select
-          className={"mdpps-select " + (!(required && !isValid) ? '' : 'invalid')}
+          className={
+            'mdpps-select ' + (!(required && !isValid) ? '' : 'invalid')
+          }
           classNamePrefix="mdpps-select"
           closeMenuOnSelect={!isMulti}
           components={animatedComponents}
@@ -68,7 +64,7 @@ function MDPPSSelect(props) {
       {extraContentEle}
 
       <Footer>
-        {(required && !isValid) && <p className="Input-item-error">{errorMsg}</p>}
+        {required && !isValid && <p className="Input-item-error">{errorMsg}</p>}
       </Footer>
     </Container>
   );

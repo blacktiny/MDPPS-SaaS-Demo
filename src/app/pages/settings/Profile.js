@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Grid, Row, Col, Content, Container, Header, Icon, Divider } from 'rsuite';
+import {
+  Grid,
+  Row,
+  Col,
+  Content,
+  Container,
+  Header,
+  Icon,
+  Divider,
+} from 'rsuite';
 import {
   InputGroup,
   PhoneNumberInputItem,
@@ -12,7 +21,7 @@ import {
   DatePickerItem,
   SelectPickerItem,
   TimezonePickerItem,
-  Button
+  Button,
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import EditImageModal from './components/EditImageModal';
@@ -20,109 +29,117 @@ import EmailChangeModal from './components/EmailChangeModal';
 import PhoneChangeModal from './components/PhoneChangeModal';
 import ProfileBGImgURL from '../../assets/images/profile_background.png';
 import ProfileAvatarURL from '../../assets/images/Jamie_Jones.svg';
-import { Camera, PreviewProfile, InputEye, InputVerified } from '../../assets/icons';
+import {
+  Camera,
+  PreviewProfile,
+  InputEye,
+  InputVerified,
+} from '../../assets/icons';
 import {
   CurrencySelectData,
   LanguageSelectData,
-  AllSocialAccounts
+  AllSocialAccounts,
 } from '../../common/utils/constants';
-import { saveProfile } from '../../common/actions'
+import { saveProfile } from '../../common/actions';
 
 function Profile(props) {
   const { profile, saveProfile } = props;
   const { emailAddress, mobilePhone } = profile;
 
-  const [userName, setUserName] = useState('jamiejones')
-  const [curPwd, setCurPwd] = useState('')
-  const [isCurPwdShowed, setIsCurPwdShowed] = useState(false)
-  const [newPwd, setNewPwd] = useState('')
-  const [isNewPwdShowed, setIsNewPwdShowed] = useState(false)
-  const [pwdStrength, setPwdStrength] = useState('Weak')
-  const [firstName, setFirstName] = useState('Jamie')
-  const [lastName, setLastName] = useState('Jones')
-  const [birthDate, setBirthDate] = useState(new Date)
-  const [jobTitle, setJobTitle] = useState('National Sales Manager')
-  const [officePhone, setOfficePhone] = useState('+13093396341')
-  const [about, setAbout] = useState('')
-  const [socialAccounts, setSocialAccounts] = useState(AllSocialAccounts)
-  const [language, setLanguage] = useState('english')
-  const [currency, setCurrency] = useState('usd')
-  const [timezone, setTimezone] = useState('')
-  const [isAllValidate, setIsAllValidate] = useState(false)
-  const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false)
-  const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(false)
-  const [showChangeEmailModal, setShowChangeEmailModal] = useState(false)
-  const [showChangePhoneModal, setShowChangePhoneModal] = useState(false)
+  const [userName, setUserName] = useState('jamiejones');
+  const [curPwd, setCurPwd] = useState('');
+  const [isCurPwdShowed, setIsCurPwdShowed] = useState(false);
+  const [newPwd, setNewPwd] = useState('');
+  const [isNewPwdShowed, setIsNewPwdShowed] = useState(false);
+  const [pwdStrength, setPwdStrength] = useState('Weak');
+  const [firstName, setFirstName] = useState('Jamie');
+  const [lastName, setLastName] = useState('Jones');
+  const [birthDate, setBirthDate] = useState(new Date());
+  const [jobTitle, setJobTitle] = useState('National Sales Manager');
+  const [officePhone, setOfficePhone] = useState('+13093396341');
+  const [about, setAbout] = useState('');
+  const [socialAccounts, setSocialAccounts] = useState(AllSocialAccounts);
+  const [language, setLanguage] = useState('english');
+  const [currency, setCurrency] = useState('usd');
+  const [timezone, setTimezone] = useState('');
+  const [isAllValidate, setIsAllValidate] = useState(false);
+  const [showEditCoverImageModal, setShowEditCoverImageModal] = useState(false);
+  const [showEditProfileImageModal, setShowEditProfileImageModal] = useState(
+    false
+  );
+  const [showChangeEmailModal, setShowChangeEmailModal] = useState(false);
+  const [showChangePhoneModal, setShowChangePhoneModal] = useState(false);
 
   // handler for the Password strength input event
   useEffect(() => {
     if (newPwd) {
-      if (newPwd.length < 4) setPwdStrength('Weak')
-      else if (newPwd.length < 8) setPwdStrength('Moderate')
-      else if (newPwd.length >= 8) setPwdStrength('Strong')
+      if (newPwd.length < 4) setPwdStrength('Weak');
+      else if (newPwd.length < 8) setPwdStrength('Moderate');
+      else if (newPwd.length >= 8) setPwdStrength('Strong');
     }
-  }, [newPwd])
+  }, [newPwd]);
 
   // handler for the input item change event
-  const inputItemChanged = useCallback((value, setFunc) => setFunc(value), [])
+  const inputItemChanged = useCallback((value, setFunc) => setFunc(value), []);
 
   // do all validate
   const allValidate = useMemo(() => {
-    const newAllValidate = []
+    const newAllValidate = [];
 
     // Username
     if (!userName) {
       newAllValidate.push({
         type: 'Username',
-        msg: ' is already in use'
-      })
+        msg: ' is already in use',
+      });
     }
     // First Name
     if (!firstName) {
       newAllValidate.push({
         type: 'First name',
-        msg: ' is required'
-      })
+        msg: ' is required',
+      });
     }
     // Last Name
     if (!lastName) {
       newAllValidate.push({
         type: 'Last name',
-        msg: ' is required'
-      })
+        msg: ' is required',
+      });
     }
     // Date of Birth
     if (!birthDate) {
       newAllValidate.push({
         type: 'Date of birth',
-        msg: ' is required'
-      })
+        msg: ' is required',
+      });
     }
     // Job Title
     if (!jobTitle) {
       newAllValidate.push({
         type: 'Job title',
-        msg: ' is required'
-      })
+        msg: ' is required',
+      });
     }
     // Office Phone Number
     if (!officePhone) {
       newAllValidate.push({
         type: 'Office phone number',
-        msg: ' is required'
-      })
+        msg: ' is required',
+      });
     }
 
     // setAllValidate(newAllValidate)
-    return newAllValidate
-  }, [
-    userName, firstName, lastName, birthDate, jobTitle, officePhone
-  ])
+    return newAllValidate;
+  }, [userName, firstName, lastName, birthDate, jobTitle, officePhone]);
 
   return (
     <div className="Settings-profile">
       <ProfileBackgroundImage imgURL={ProfileBGImgURL} />
-      <div className="Background-change-btn" onClick={() => setShowEditCoverImageModal(true)}>
+      <div
+        className="Background-change-btn"
+        onClick={() => setShowEditCoverImageModal(true)}
+      >
         <Camera />
       </div>
 
@@ -130,14 +147,19 @@ function Profile(props) {
         <Header className="row Profile-header">
           <div className="Avatar-container">
             <img className="Avatar-img" src={ProfileAvatarURL} alt="avatar" />
-            <div className="Avatar-change-btn" onClick={() => setShowEditProfileImageModal(true)}>
+            <div
+              className="Avatar-change-btn"
+              onClick={() => setShowEditProfileImageModal(true)}
+            >
               <Camera />
             </div>
           </div>
           <div className="col Right-side">
             <div className="Profile-name">Jamie Jones</div>
             <div className="row Preview-profile">
-              <Link to={'/'} className="Preview-profile-link">Preview profile</Link>
+              <Link to={'/'} className="Preview-profile-link">
+                Preview profile
+              </Link>
               <PreviewProfile />
             </div>
           </div>
@@ -146,39 +168,53 @@ function Profile(props) {
         <Content className="Profile-content">
           <Grid fluid>
             <Row>
-              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col
+                xs={22}
+                xsPull={1}
+                xsPush={1}
+                sm={20}
+                smPull={2}
+                smPush={2}
+                md={18}
+                mdPull={3}
+                mdPush={3}
+              >
                 <InputGroup title={'Account'}>
                   <TextInputItem
                     title={'Email Address'}
                     value={emailAddress}
-                    extraContentEle={(
+                    extraContentEle={
                       <div
                         className="Modal-link-btn"
                         onClick={() => setShowChangeEmailModal(true)}
-                      >Change</div>
-                    )}
-                    inputSuffixEle={(
+                      >
+                        Change
+                      </div>
+                    }
+                    inputSuffixEle={
                       <div className="verified">
                         <InputVerified />
                       </div>
-                    )}
+                    }
                     doValidate={isAllValidate}
                     disabled
                   />
                   <PhoneNumberInputItem
                     title={'Mobile Number'}
                     value={mobilePhone}
-                    extraContentEle={(
+                    extraContentEle={
                       <div
                         className="Modal-link-btn phone-number"
                         onClick={() => setShowChangePhoneModal(true)}
-                      >Change</div>
-                    )}
-                    inputSuffixEle={(
+                      >
+                        Change
+                      </div>
+                    }
+                    inputSuffixEle={
                       <div className="verified">
                         <InputVerified />
                       </div>
-                    )}
+                    }
                     disabled
                     errorMsg={'Please enter your office number'}
                   />
@@ -187,14 +223,14 @@ function Profile(props) {
                     value={userName}
                     placeholder={'Userid'}
                     onChanged={value => inputItemChanged(value, setUserName)}
-                    extraContentEle={(
-                      <div className="Input-description">Unique profile name on [platform name]</div>
-                    )}
-                    inputPrefixEle={(
-                      <div className="Input-username">
-                        htpps://mdpps.com/u/
+                    extraContentEle={
+                      <div className="Input-description">
+                        Unique profile name on [platform name]
                       </div>
-                    )}
+                    }
+                    inputPrefixEle={
+                      <div className="Input-username">htpps://mdpps.com/u/</div>
+                    }
                     doValidate={isAllValidate}
                     required
                     errorMsg={'This username is already in use'}
@@ -203,16 +239,23 @@ function Profile(props) {
                     type={isCurPwdShowed ? 'text' : 'password'}
                     title={'Current Password'}
                     value={curPwd}
-                    placeholder={'Leave empty if you do not want to change your password'}
+                    placeholder={
+                      'Leave empty if you do not want to change your password'
+                    }
                     onChanged={value => inputItemChanged(value, setCurPwd)}
-                    extraContentEle={(
-                      <div className="Modal-link-btn">I forgot my current password</div>
-                    )}
-                    inputSuffixEle={(
-                      <div className="Input-password" onClick={() => setIsCurPwdShowed(!isCurPwdShowed)}>
+                    extraContentEle={
+                      <div className="Modal-link-btn">
+                        I forgot my current password
+                      </div>
+                    }
+                    inputSuffixEle={
+                      <div
+                        className="Input-password"
+                        onClick={() => setIsCurPwdShowed(!isCurPwdShowed)}
+                      >
                         <InputEye />
                       </div>
-                    )}
+                    }
                     doValidate={isAllValidate}
                   />
                   <TextInputItem
@@ -220,26 +263,43 @@ function Profile(props) {
                     title={'New Password'}
                     value={newPwd}
                     onChanged={value => inputItemChanged(value, setNewPwd)}
-                    extraContentEle={newPwd && (
-                      <div className="Password-strength">
-                        <div className="Password-strength-container">
-                          <div className={pwdStrength}></div>
+                    extraContentEle={
+                      newPwd && (
+                        <div className="Password-strength">
+                          <div className="Password-strength-container">
+                            <div className={pwdStrength}></div>
+                          </div>
+                          <span>{pwdStrength}</span>
                         </div>
-                        <span>{pwdStrength}</span>
-                      </div>
-                    )}
-                    inputSuffixEle={(
-                      <div className="Input-password" onClick={() => setIsNewPwdShowed(!isNewPwdShowed)}>
+                      )
+                    }
+                    inputSuffixEle={
+                      <div
+                        className="Input-password"
+                        onClick={() => setIsNewPwdShowed(!isNewPwdShowed)}
+                      >
                         <InputEye />
                       </div>
-                    )}
-                    tooltip={'Minimum of 8 characters containing at least one upper case letter, a symbol and a number'}
+                    }
+                    tooltip={
+                      'Minimum of 8 characters containing at least one upper case letter, a symbol and a number'
+                    }
                     doValidate={isAllValidate}
                   />
                 </InputGroup>
               </Col>
 
-              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col
+                xs={22}
+                xsPull={1}
+                xsPush={1}
+                sm={20}
+                smPull={2}
+                smPush={2}
+                md={18}
+                mdPull={3}
+                mdPush={3}
+              >
                 <InputGroup title={'Personal Information'}>
                   <TextInputItem
                     title={'First Name'}
@@ -288,7 +348,17 @@ function Profile(props) {
                 </InputGroup>
               </Col>
 
-              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col
+                xs={22}
+                xsPull={1}
+                xsPush={1}
+                sm={20}
+                smPull={2}
+                smPush={2}
+                md={18}
+                mdPull={3}
+                mdPush={3}
+              >
                 <InputGroup title={'Localization'}>
                   <Row>
                     <Col xs={24} sm={11}>
@@ -296,7 +366,6 @@ function Profile(props) {
                         title={'Language'}
                         value={language}
                         data={LanguageSelectData}
-                        // eslint-disable-next-line no-unused-vars
                         onChange={(value, _event) => setLanguage(value)}
                       />
                     </Col>
@@ -305,7 +374,6 @@ function Profile(props) {
                         title={'Currency'}
                         value={currency}
                         data={CurrencySelectData}
-                        // eslint-disable-next-line no-unused-vars
                         onChange={(value, _event) => setCurrency(value)}
                       />
                     </Col>
@@ -313,7 +381,6 @@ function Profile(props) {
                   <Row>
                     <Col xs={24}>
                       <TimezonePickerItem
-                        // eslint-disable-next-line no-unused-vars
                         onChange={(value, _event) => setTimezone(value)}
                         title={'Time Zone'}
                         value={timezone}
@@ -323,7 +390,17 @@ function Profile(props) {
                 </InputGroup>
               </Col>
 
-              <Col xs={22} xsPull={1} xsPush={1} sm={20} smPull={2} smPush={2} md={18} mdPull={3} mdPush={3}>
+              <Col
+                xs={22}
+                xsPull={1}
+                xsPush={1}
+                sm={20}
+                smPull={2}
+                smPush={2}
+                md={18}
+                mdPull={3}
+                mdPush={3}
+              >
                 <div className="col">
                   {isAllValidate && (
                     <Container className="Validate-list">
@@ -338,7 +415,7 @@ function Profile(props) {
                                 <span>{validate.type}</span>
                                 <span>{validate.msg}</span>
                               </li>
-                            )
+                            );
                           })}
                         </ul>
                       </Content>
@@ -347,9 +424,12 @@ function Profile(props) {
                   )}
                   <div className="profile-submit-btn-group">
                     <div
-                      className={"All-validate-btn " + (allValidate.length > 0 ? 'has-error' : '')}
+                      className={
+                        'All-validate-btn ' +
+                        (allValidate.length > 0 ? 'has-error' : '')
+                      }
                       onClick={() => {
-                        setIsAllValidate(!isAllValidate)
+                        setIsAllValidate(!isAllValidate);
                       }}
                     >
                       <Icon icon={isAllValidate ? 'eye-slash' : 'eye'} />
@@ -432,6 +512,10 @@ const ProfileBackgroundImage = styled.div`
     bottom: 0;
     width: 100%;
     height: 86px;
-    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    background-image: linear-gradient(
+      -180deg,
+      rgba(0, 0, 0, 0) 0%,
+      #000000 100%
+    );
   }
 `;

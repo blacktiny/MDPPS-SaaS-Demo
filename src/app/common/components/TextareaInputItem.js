@@ -36,7 +36,7 @@ function TextareaInputItem(props) {
     newValue => {
       if (newValue.length <= MAX_LENGTH) onChanged(newValue);
     },
-    [value]
+    [onChanged]
   );
 
   return (

@@ -43,7 +43,7 @@ function CompanyOfficialList(props) {
       designation: data[0].designation,
     });
     onChanged(JSON.parse(JSON.stringify(data)));
-  }, [data]);
+  }, [data, onChanged]);
 
   return (
     <Container className="Official-list">

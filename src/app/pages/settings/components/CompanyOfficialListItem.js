@@ -46,9 +46,9 @@ function CompanyOfficialListItem(props) {
   // handler for team member update event
   const handlerTeamMemberChange = useCallback(
     newMember => {
-      onChanged({ id, newMember, designation });
+      onChanged({ id, member: newMember, designation });
     },
-    [id, designation]
+    [onChanged, id, designation]
   );
 
   // handler for designation update event
@@ -56,7 +56,7 @@ function CompanyOfficialListItem(props) {
     newDesignation => {
       onChanged({ id, member, designation: newDesignation });
     },
-    [id, member]
+    [id, member, onChanged]
   );
 
   return (

@@ -17,39 +17,43 @@ function SelectCustomPickerItem(props) {
   );
   const [customNumber, steCustomNumber] = useState(1);
 
-  useEffect(() => {
-    // check if has more one custom menu item
-    const customMenus = customData.filter(item => item.groupby === 'custom');
+  useEffect(
+    () => {
+      // check if has more one custom menu item
+      const customMenus = customData.filter(item => item.groupby === 'custom');
 
-    if (!customMenus.length) {
+      if (!customMenus.length) {
+        customData.push({
+          label: 'divider',
+          value: 'divider2',
+          groupBy: 'divider',
+        });
+        customData.push({
+          label: 'Custom Designation 1',
+          value: 'custom1',
+          groupBy: 'custom',
+        });
+      } else {
+        steCustomNumber(customMenus.length);
+      }
+
+      // add data item for `Add New` button
       customData.push({
         label: 'divider',
-        value: 'divider',
+        value: 'divider2',
         groupBy: 'divider',
       });
       customData.push({
-        label: 'Custom Designation 1',
-        value: 'custom1',
-        groupBy: 'custom',
+        label: 'Add New',
+        value: 'button',
+        groupBy: 'button',
       });
-    } else {
-      steCustomNumber(customMenus.length);
-    }
 
-    // add data item for `Add New` button
-    customData.push({
-      label: 'divider',
-      value: 'divider',
-      groupBy: 'divider',
-    });
-    customData.push({
-      label: 'Add New',
-      value: 'button',
-      groupBy: 'button',
-    });
-
-    setCustomData(JSON.parse(JSON.stringify(customData)));
-  }, []);
+      setCustomData(JSON.parse(JSON.stringify(customData)));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   const handlerSelectPickerClicked = useCallback(() => {
     setIsOpened(!isOpened);
@@ -67,13 +71,9 @@ function SelectCustomPickerItem(props) {
   }, [customData, customNumber]);
 
   // handler for click custom menu edit button
-  const handlerEditCustomMenu = useCallback(
-    item => {
-      // eslint-disable-next-line no-undef
-      console.log(`${item.label} menu's edit button clicked!`);
-    },
-    [customData]
-  );
+  const handlerEditCustomMenu = useCallback(item => {
+    console.log(`${item.label} menu's edit button clicked!`);
+  }, []);
 
   // handler for click custom menu trash button
   const handlerDeleteCustomMenu = useCallback(
@@ -111,8 +111,11 @@ function SelectCustomPickerItem(props) {
           renderMenuItem={(label, item) => {
             if (item.groupBy === 'divider') {
               return (
-                <div className="Select-custom-menu-item divider">
-                  <Divider />
+                <div
+                  key={item.value}
+                  className="Select-custom-menu-item divider"
+                >
+                  <Divider key={item.value} />
                 </div>
               );
             } else if (item.groupBy === 'button') {

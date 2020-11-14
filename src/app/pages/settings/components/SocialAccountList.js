@@ -56,7 +56,7 @@ function SocialAccountList(props) {
       }
       onChanged(JSON.parse(JSON.stringify(data)));
     },
-    [data, onChanged]
+    [data, onChanged, unOpenedSocials]
   );
 
   // handler for add new social event
@@ -66,7 +66,7 @@ function SocialAccountList(props) {
     );
     data[indexOfNewSocial].isOpened = true;
     onChanged(JSON.parse(JSON.stringify(data)));
-  }, [unOpenedSocials, data]);
+  }, [data, onChanged, unOpenedSocials]);
 
   return (
     <Container className="Social-list">

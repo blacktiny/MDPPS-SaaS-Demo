@@ -101,7 +101,7 @@ function PhoneChangeModal(props) {
       default:
         return <>Empty</>;
     }
-  }, [emailChangeStep]);
+  }, [changeEmail, emailChangeStep, finishEmailChange, onClosed]);
 
   return (
     <MDPPSModal show={show} onClosed={onClosed}>

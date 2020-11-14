@@ -44,7 +44,7 @@ function Settings(props) {
     } else {
       setIsNewNotify(false);
     }
-  }, [common.isNewNotify]);
+  }, [clearSettingsNotification, common.isNewNotify]);
 
   return (
     <div className="page-wrapper">

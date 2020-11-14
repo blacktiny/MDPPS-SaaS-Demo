@@ -33,7 +33,7 @@ function PhoneNumberInputItem(props) {
       setIsEmpty(true);
       setIsValid(true);
     }
-  }, [required, value]);
+  }, [value]);
 
   return (
     <Container className="Phone-number-item">

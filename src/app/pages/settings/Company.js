@@ -401,7 +401,7 @@ function Company() {
                 <InputGroup title={'Classification'}>
                   <div className="classification-contact-us">
                     Can`t find your industry or category?{' '}
-                    <Link href="https://mdpps.com/contact-us/" target="_blank">
+                    <Link to="https://mdpps.com/contact-us/" target="_blank">
                       Contact us
                     </Link>
                   </div>

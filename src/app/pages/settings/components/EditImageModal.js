@@ -21,7 +21,7 @@ function ImageCropper(props) {
         },
       });
     }
-  }, [imageEleRef.current]);
+  }, [imageEleRef, onImageDestinationChanged]);
 
   return (
     <div className="image-cropper">

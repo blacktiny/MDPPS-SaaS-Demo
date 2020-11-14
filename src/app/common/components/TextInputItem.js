@@ -27,11 +27,10 @@ function TextInputItem(props) {
   useEffect(() => {
     if (eleRef.current && tooltip) {
       const { right } = eleRef.current.getBoundingClientRect();
-      // eslint-disable-next-line no-undef
       if (window.innerWidth - right > 250) setTooltipAlign('right');
       else setTooltipAlign('top');
     }
-  }, [eleRef.current, tooltip]);
+  }, [tooltip]);
 
   // handler for input focus event
   const handleInputFocus = useCallback(() => {
@@ -49,7 +48,7 @@ function TextInputItem(props) {
   // do validate
   useEffect(() => {
     if (doValidate) handleInputBlur();
-  }, [doValidate]);
+  }, [doValidate, handleInputBlur]);
 
   return (
     <Container className="Input-item">

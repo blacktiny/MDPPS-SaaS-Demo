@@ -4,7 +4,8 @@
   "env": {
     "amd": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "browser": true,
   },
   "globals": {
     "page": true,

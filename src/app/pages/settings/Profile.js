@@ -15,12 +15,12 @@ import {
 } from 'rsuite';
 import {
   InputGroup,
-  PhoneNumberInputItem,
-  TextInputItem,
-  TextareaInputItem,
+  PhoneNumberInput,
+  TextInput,
+  Textarea,
   DatePicker,
   SelectPickerItem,
-  TimezonePickerItem,
+  TimezonePicker,
   Button,
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
@@ -180,7 +180,7 @@ function Profile(props) {
                 mdPush={3}
               >
                 <InputGroup title={'Account'}>
-                  <TextInputItem
+                  <TextInput
                     title={'Email Address'}
                     value={emailAddress}
                     extraContentEle={
@@ -199,7 +199,7 @@ function Profile(props) {
                     doValidate={isAllValidate}
                     disabled
                   />
-                  <PhoneNumberInputItem
+                  <PhoneNumberInput
                     title={'Mobile Number'}
                     value={mobilePhone}
                     extraContentEle={
@@ -218,7 +218,7 @@ function Profile(props) {
                     disabled
                     errorMsg={'Please enter your office number'}
                   />
-                  <TextInputItem
+                  <TextInput
                     title={'Username'}
                     value={userName}
                     placeholder={'Userid'}
@@ -235,7 +235,7 @@ function Profile(props) {
                     required
                     errorMsg={'This username is already in use'}
                   />
-                  <TextInputItem
+                  <TextInput
                     type={isCurPwdShowed ? 'text' : 'password'}
                     title={'Current Password'}
                     value={curPwd}
@@ -258,7 +258,7 @@ function Profile(props) {
                     }
                     doValidate={isAllValidate}
                   />
-                  <TextInputItem
+                  <TextInput
                     type={isNewPwdShowed ? 'text' : 'password'}
                     title={'New Password'}
                     value={newPwd}
@@ -301,14 +301,14 @@ function Profile(props) {
                 mdPush={3}
               >
                 <InputGroup title={'Personal Information'}>
-                  <TextInputItem
+                  <TextInput
                     title={'First Name'}
                     value={firstName}
                     onChanged={value => inputItemChanged(value, setFirstName)}
                     required
                     errorMsg={'Please enter your first name'}
                   />
-                  <TextInputItem
+                  <TextInput
                     title={'Last Name'}
                     value={lastName}
                     onChanged={value => inputItemChanged(value, setLastName)}
@@ -321,7 +321,7 @@ function Profile(props) {
                     onChanged={setBirthDate}
                     required
                   />
-                  <TextInputItem
+                  <TextInput
                     title={'Job Title'}
                     value={jobTitle}
                     placeholder={'Your job title'}
@@ -329,14 +329,14 @@ function Profile(props) {
                     required
                     errorMsg={'Please enter your job title'}
                   />
-                  <PhoneNumberInputItem
+                  <PhoneNumberInput
                     title={'Office Phone Number'}
                     value={officePhone}
                     onChanged={setOfficePhone}
                     required
                     errorMsg={'Please enter your office number'}
                   />
-                  <TextareaInputItem
+                  <Textarea
                     title={'About'}
                     value={about}
                     onChanged={value => inputItemChanged(value, setAbout)}
@@ -380,7 +380,7 @@ function Profile(props) {
                   </Row>
                   <Row>
                     <Col xs={24}>
-                      <TimezonePickerItem
+                      <TimezonePicker
                         onChange={(value, _event) => setTimezone(value)}
                         title={'Time Zone'}
                         value={timezone}

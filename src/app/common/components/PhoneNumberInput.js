@@ -6,7 +6,7 @@ import PhoneInput, {
 } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
-function PhoneNumberInputItem(props) {
+function PhoneNumberInput(props) {
   const {
     title,
     value,
@@ -71,4 +71,4 @@ function PhoneNumberInputItem(props) {
   );
 }
 
-export default PhoneNumberInputItem;
+export default PhoneNumberInput;

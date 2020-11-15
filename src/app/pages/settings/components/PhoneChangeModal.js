@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   Button,
-  PhoneNumberInputItem,
+  PhoneNumberInput,
   Modal as MDPPSModal,
 } from '../../../common/components';
 import { OTPCodeInputPage, FinishPage } from './EmailChangeModal';
@@ -25,7 +25,7 @@ function PhoneInputPage(props) {
           Enter the new phone number you would like to associate with your
           account below. We’ll send a One Time Password (OTP) to that number.
         </p>
-        <PhoneNumberInputItem
+        <PhoneNumberInput
           value={phoneNumber}
           placeholder={'Enter your new phone number'}
           errorMsg={'Please enter a valid phone number'}

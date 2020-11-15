@@ -16,8 +16,8 @@ import {
 } from 'rsuite';
 import {
   InputGroup,
-  TextInputItem,
-  TextareaInputItem,
+  TextInput,
+  Textarea,
   MDPPSSelect,
   SelectPickerItem,
   SelectCustomPickerItem,
@@ -181,7 +181,7 @@ function Company() {
                 mdPush={3}
               >
                 <InputGroup title={'Company Information'}>
-                  <TextInputItem
+                  <TextInput
                     title={'Legal Name'}
                     value={legalName}
                     onChanged={value => inputItemChanged(value, setLegalName)}
@@ -200,20 +200,20 @@ function Company() {
                     required
                   />
                   {!isSameDBA && (
-                    <TextInputItem
+                    <TextInput
                       title={'DBA'}
                       value={dba}
                       placeholder={'Doing Business As'}
                       onChanged={value => inputItemChanged(value, setDba)}
                     />
                   )}
-                  <TextInputItem
+                  <TextInput
                     title={'Previously Known as'}
                     value={prevKnown}
                     placeholder={`Your company's previous name`}
                     onChanged={value => inputItemChanged(value, setPrevKnown)}
                   />
-                  <TextInputItem
+                  <TextInput
                     title={'Company Page'}
                     value={companyPage}
                     placeholder={'pagename'}
@@ -250,7 +250,7 @@ function Company() {
                       />
                     </Col>
                     <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
-                      <TextInputItem
+                      <TextInput
                         title={''}
                         value={taxIDNumber}
                         placeholder={'Tax ID Number'}
@@ -264,7 +264,7 @@ function Company() {
                   </Row>
                   <Row>
                     <Col xs={24} md={8} lg={7}>
-                      <TextInputItem
+                      <TextInput
                         title={'Year Established'}
                         value={yearEstablished}
                         placeholder={'Enter year'}
@@ -300,12 +300,12 @@ function Company() {
                       />
                     </Col>
                   </Row>
-                  <TextareaInputItem
+                  <Textarea
                     title={'About'}
                     value={about}
                     onChanged={value => inputItemChanged(value, setAbout)}
                   />
-                  <TextInputItem
+                  <TextInput
                     title={'Website'}
                     value={website}
                     placeholder={'Your company EIN or SSN'}
@@ -327,7 +327,7 @@ function Company() {
                       />
                     </Col>
                     <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
-                      <TextInputItem
+                      <TextInput
                         title={''}
                         value={quarterAddress}
                         placeholder={'e.g. Cupertino, CA'}
@@ -348,7 +348,7 @@ function Company() {
                       />
                     </Col>
                     <Col xs={24} md={15} mdPush={1} lg={16} lgPush={1}>
-                      <TextInputItem
+                      <TextInput
                         title={''}
                         value={originAddress}
                         placeholder={'e.g. United States'}

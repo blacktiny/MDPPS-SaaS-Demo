@@ -3,7 +3,7 @@ import { Container, Content, Header } from 'rsuite';
 import TimezonePicker from 'react-bootstrap-timezone-picker';
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
-function TimezonePickerItem(props) {
+function MDPPSTimezonePicker(props) {
   const { onChanged, title, value, ...restProps } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -31,4 +31,4 @@ function TimezonePickerItem(props) {
   );
 }
 
-export default TimezonePickerItem;
+export default MDPPSTimezonePicker;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   Button,
-  TextInputItem,
+  TextInput,
   Modal as MDPPSModal,
 } from '../../../common/components';
 import { changeEmail, finishEmailChange } from '../../../common/actions';
@@ -26,7 +26,7 @@ function EmailInputPage(props) {
           We recommend using your company email address for verification and
           security.
         </p>
-        <TextInputItem
+        <TextInput
           value={changeEmailAddr}
           placeholder={'Enter your new email address'}
           errorMsg={'Please enter a valid email address'}
@@ -79,7 +79,7 @@ export function OTPCodeInputPage(props) {
           <span style={{ fontWeight: 'bold' }}>you@companyname.com</span>.
           Please enter it below.
         </p>
-        <TextInputItem
+        <TextInput
           title={'Enter OTP'}
           value={otpCode}
           errorMsg={'Please check your inbox and enter the OTP password given'}

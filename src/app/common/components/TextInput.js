@@ -24,13 +24,17 @@ function TextInputItem(props) {
 
   const eleRef = useRef(); // reference for hint or tooltip element
 
-  useEffect(() => {
-    if (eleRef.current && tooltip) {
-      const { right } = eleRef.current.getBoundingClientRect();
-      if (window.innerWidth - right > 250) setTooltipAlign('right');
-      else setTooltipAlign('top');
-    }
-  }, [tooltip]);
+  useEffect(
+    () => {
+      if (eleRef.current && tooltip) {
+        const { right } = eleRef.current.getBoundingClientRect();
+        if (window.innerWidth - right > 250) setTooltipAlign('right');
+        else setTooltipAlign('top');
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [eleRef.current, tooltip]
+  );
 
   // handler for input focus event
   const handleInputFocus = useCallback(() => {

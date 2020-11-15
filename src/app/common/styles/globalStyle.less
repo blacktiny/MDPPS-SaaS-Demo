@@ -415,6 +415,26 @@ h4 {
   }
 }
 
+.rs-calendar {
+  &-header {
+    .rs-calendar-table-cell-content {
+      color: @color-dark1;
+    }
+  }
+
+  &-view {
+    border-top: 1px solid #f2f2f2;
+    margin-top: 10px;
+    padding-top: 14px;
+  }
+}
+
+.rs-calendar-table-header-row .rs-calendar-table-cell-content {
+  font-family: @font-medium;
+  font-size: 13px;
+  color: @color-dark1 !important;
+}
+
 // ----- Select Picker Item ----- //
 .Select-item {
   position: relative;
@@ -465,7 +485,8 @@ h4 {
 
 .rs-picker-menu {
   .rs-picker-select-menu-item {
-    font-size: 12px;
+    font-family: @font-regular;
+    font-size: 13px;
     padding-left: 22px;
   }
 
@@ -480,6 +501,19 @@ h4 {
     color: @color-blue !important;
     background-color: #f7faff;
     text-decoration: none;
+  }
+
+  .rs-picker-select-menu-items {
+    .ReactVirtualized__Grid__innerScrollContainer {
+      height: 300px !important;
+      overflow: auto !important;
+
+      div[role=listitem] {
+        height: fit-content !important;
+        position: relative !important;
+        top: auto !important;
+      }
+    }
   }
 }
 
@@ -518,6 +552,7 @@ h4 {
 
   &.add-btn {
     color: @color-blue;
+    padding-left: 20px;
 
     &:hover {
       cursor: pointer;

@@ -12,8 +12,8 @@ function ImageCropper(props) {
   useEffect(() => {
     if (imageEleRef.current) {
       const cropper = new Cropper(imageEleRef.current, {
-        zoomable: false,
-        scalable: false,
+        zoomable: 1,
+        scalable: 1,
         // aspectRatio: 1,
         crop: () => {
           const canvas = cropper.getCroppedCanvas();

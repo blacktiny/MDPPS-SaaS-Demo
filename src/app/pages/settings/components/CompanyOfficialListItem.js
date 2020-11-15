@@ -62,7 +62,7 @@ function CompanyOfficialListItem(props) {
 
   return (
     <Row className="Official-list-item">
-      <Col xs={24} md={16}>
+      <Col xs={24} md={13} lg={16}>
         <MDPPSSelect
           options={TeamMemberSelectData}
           value={member}
@@ -70,7 +70,7 @@ function CompanyOfficialListItem(props) {
           components={{ ValueContainer, MenuList }}
         />
       </Col>
-      <Col xs={24} md={7} mdPush={1}>
+      <Col xs={24} md={10} mdPush={1} lg={7} lgPush={1}>
         <SelectCustomPickerItem
           data={DesignationSelectData}
           value={designation.value}

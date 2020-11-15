@@ -97,6 +97,10 @@
     max-height: 400px;
     background-color: #d7d7d7;
     margin: 50px 0 80px;
+
+    .image-cropper {
+      width: 100%;
+    }
   }
 
   &-footer {
@@ -120,6 +124,17 @@
 
   @media (max-width: 1440px) {
     width: 80%;
+    min-width: 1120px;
+    margin: 0 auto;
+
+    &-content {
+      max-height: 350px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 80%;
+    min-width: 800px;
     margin: 0 auto;
 
     &-content {
@@ -128,6 +143,8 @@
   }
 
   @media (max-width: 992px) {
+    min-width: auto;
+
     &-content {
       margin: 50px 0 30px;
     }

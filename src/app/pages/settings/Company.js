@@ -303,6 +303,7 @@ function Company() {
                   <Textarea
                     title={'About'}
                     value={about}
+                    limitedChars={512}
                     onChanged={value => inputItemChanged(value, setAbout)}
                   />
                   <TextInput

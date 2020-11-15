@@ -8,6 +8,7 @@ function TextareaInputItem(props) {
     customStyle,
     disabled,
     extraContent,
+    limitedChars = MAX_LENGTH,
     onChanged,
     placeholder,
     required,
@@ -69,10 +70,11 @@ function TextareaInputItem(props) {
         </div>
         <div
           className={
-            'Input-description ' + (value.length === MAX_LENGTH ? 'error' : '')
+            'Input-description ' +
+            (value.length === limitedChars ? 'error' : '')
           }
         >
-          Characters left: {MAX_LENGTH - value.length}
+          Characters left: {limitedChars - value.length}
         </div>
         {extraContent}
       </Content>

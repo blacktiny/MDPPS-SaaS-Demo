@@ -18,7 +18,7 @@ import {
   PhoneNumberInputItem,
   TextInputItem,
   TextareaInputItem,
-  DatePickerItem,
+  DatePicker,
   SelectPickerItem,
   TimezonePickerItem,
   Button,
@@ -315,7 +315,7 @@ function Profile(props) {
                     required
                     errorMsg={'Please enter your last name'}
                   />
-                  <DatePickerItem
+                  <DatePicker
                     title={'Date of Birth'}
                     value={birthDate}
                     onChanged={setBirthDate}

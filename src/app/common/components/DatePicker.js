@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Container, Content, DatePicker, Header } from 'rsuite';
 
-function DatePickerItem(props) {
+function MDPPSDatePicker(props) {
   const { title, value, onChanged, required } = props;
   const [isOpened, setIsOpened] = useState(false);
 
@@ -43,4 +43,4 @@ function DatePickerItem(props) {
   );
 }
 
-export default DatePickerItem;
+export default MDPPSDatePicker;

@@ -33,10 +33,12 @@ function Settings(props) {
     if (common.isNewNotify) {
       // move to screen's top
       window.scrollTo(0, 0);
+
       // set notification
       setTimeout(() => {
         setIsNewNotify(true);
       }, 100);
+
       // clear notificationo
       setTimeout(() => {
         clearSettingsNotification();

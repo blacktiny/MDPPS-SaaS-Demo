@@ -20,13 +20,14 @@ function MDPPSSelect(props) {
 
   const [isValid, setIsValid] = useState(true);
 
-  const colourStyles = {
+  const customStyles = {
     option: (styles, { data, isFocused, isSelected }) => {
       return {
         ...styles,
         backgroundColor: isFocused || isSelected ? '#f7faff' : data.color,
         color: isFocused || isSelected ? '#4284fc' : data.color,
         cursor: 'pointer',
+        paddingLeft: 20,
       };
     },
   };
@@ -55,7 +56,8 @@ function MDPPSSelect(props) {
           options={options}
           onBlur={doValidate}
           onChange={onChanged}
-          styles={colourStyles}
+          placeholder={isMulti ? '+ Add more' : 'Select ...'}
+          styles={customStyles}
           value={value}
           {...restProps}
         />

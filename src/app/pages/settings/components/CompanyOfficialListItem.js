@@ -5,6 +5,7 @@ import {
   MDPPSSelect,
   SelectCustomPickerItem,
 } from '../../../common/components';
+import { Search } from '../../../assets/icons';
 import {
   TeamMemberSelectData,
   DesignationSelectData,
@@ -14,7 +15,7 @@ export const ValueContainer = ({ children, ...props }) => {
   return (
     <components.ValueContainer {...props}>
       <div className="mdpps-select-search-icon">
-        <Icon icon="search" />
+        <Search />
       </div>
       <div style={{ display: 'flex', width: 'calc(100% - 60px)' }}>
         {children}

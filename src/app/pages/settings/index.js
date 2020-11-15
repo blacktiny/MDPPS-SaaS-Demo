@@ -31,13 +31,13 @@ function Settings(props) {
   // handler for settings notification
   useEffect(() => {
     if (common.isNewNotify) {
-      // eslint-disable-next-line no-undef
+      // move to screen's top
       window.scrollTo(0, 0);
-      // eslint-disable-next-line no-undef
+      // set notification
       setTimeout(() => {
         setIsNewNotify(true);
       }, 100);
-      // eslint-disable-next-line no-undef
+      // clear notificationo
       setTimeout(() => {
         clearSettingsNotification();
       }, 4000);

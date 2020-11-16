@@ -897,9 +897,13 @@ h4 {
   position: relative;
   margin-bottom: 25px;
 
-  .dropzone {
-    display: flex;
-    align-items: center;
+  &.w9-dropzone {
+    .Input-item-title {
+      color: #3469c7;
+    }
+  }
+
+  &-content {
     height: 50px;
     border: 1px dashed #b6d0fd;
     background-color: @input-default-bg;
@@ -907,29 +911,113 @@ h4 {
     border-radius: 3px;
     box-sizing: border-box;
 
-    svg {
-      margin-right: 12px;
-    }
+    .pdf-info-panel {
+      display: flex;
 
-    p {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 13px;
-      color: @color-dark3;
-    }
+      .pdf-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 25px;
+        background-color: @color-blue;
+        font-family: @font-medium;
+        color: white;
+        font-size: 8px;
+        text-transform: uppercase;
+        margin-right: 15px;
+        border-radius: 3px;
+      }
 
-    button {
-      width: 100px;
-      height: 30px;
-      border-radius: 4px;
-      background-color: @color-blue;
-      box-sizing: border-box;
-      font-family: @font-bold;
-      color: #f3f3f4;
-      text-align: center;
-      line-height: normal;
-      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-      padding-top: 7px;
-      margin-left: auto;
+      .pdf-file_path {
+        font-size: 12px;
+        color: @color-dark2;
+        font-weight: bold;
+        line-height: 15px;
+        margin-bottom: 3px;
+      }
+
+      .pdf-file_date-size {
+        font-size: 10px;
+        color: #657786;
+        line-height: 10px;
+      }
+
+      p + p {
+        margin-top: 0;
+      }
+
+      .loader {
+        position: relative;
+        width: 30px;
+        height: 100%;
+        margin-left: auto;
+
+        &-cancel {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+
+          i {
+            font-size: 12px;
+            font-weight: bold;
+            color: #677786;
+          }
+        }
+      }
+
+      .control-group {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        .control-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          height: 25px;
+          border-radius: 3px;
+          background-color: rgba(239, 243, 245, 1);
+          margin-left: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+    
+    .dropzone {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 12px;
+      }
+  
+      p {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 13px;
+        color: @color-dark3;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        border-radius: 4px;
+        background-color: @color-blue;
+        box-sizing: border-box;
+        font-family: @font-bold;
+        color: #f3f3f4;
+        text-align: center;
+        line-height: normal;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+        padding-top: 7px;
+        margin-left: auto;
+      }
     }
   }
 }

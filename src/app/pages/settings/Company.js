@@ -70,6 +70,9 @@ function Company() {
   const [quarterAddress, setQuarterAddress] = useState('');
   const [originType, setOriginType] = useState('made');
   const [originAddress, setOriginAddress] = useState('');
+  const [bizLicensePDF, setBizLicensePDF] = useState();
+  const [w9PDF, setW9PDF] = useState();
+  const [resaleTaxPDF, setResaleTax] = useState();
   const [companyOfficials, setCompanyOfficials] = useState(
     CompanyOfficialsData
   );
@@ -361,12 +364,21 @@ function Company() {
                     </Col>
                   </Row>
                   <PDFUploadDropzone
+                    file={bizLicensePDF}
                     title={'Business License or Tax Certification'}
+                    onFileSelected={setBizLicensePDF}
                     required
                   />
-                  <PDFUploadDropzone title={'Form W-9'} />
                   <PDFUploadDropzone
+                    file={w9PDF}
+                    classnamePrefix={'w9'}
+                    title={'Form W-9'}
+                    onFileSelected={setW9PDF}
+                  />
+                  <PDFUploadDropzone
+                    file={resaleTaxPDF}
                     title={'Resale Tax Exemption Certificate'}
+                    onFileSelected={setResaleTax}
                   />
                 </InputGroup>
               </Col>
@@ -402,9 +414,7 @@ function Company() {
                 <InputGroup title={'Classification'}>
                   <div className="classification-contact-us">
                     Can`t find your industry or category?{' '}
-                    <Link to="https://mdpps.com/contact-us/" target="_blank">
-                      Contact us
-                    </Link>
+                    <a href="https://mdpps.com/contact-us/">Contact us</a>
                   </div>
                   <MDPPSSelect
                     title={'Industry'}

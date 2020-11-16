@@ -30,12 +30,21 @@
     border: 1px solid transparent;
     border-radius: 3px;
 
-    &.focused {
-      border: 1px solid @color-blue;
+    &:hover {
+      background-color: @input-hover-bg;
+
+      .rs-picker-select {
+        background-color: @input-hover-bg;
+      }
     }
 
-    .rs-picker-select:hover {
-      background-color: @input-default-bg;
+    &.focused {
+      background-color: white;
+      border: 1px solid @color-blue;
+
+      .rs-picker-select {
+        background-color: white;
+      }
     }
 
     .rs-picker-toggle-value {

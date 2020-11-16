@@ -15,3 +15,4 @@ export { default as SettingsNotifications } from './SettingsNotifications';
 export { default as SettingsProfile } from './SettingsProfile';
 export { default as SettingsSecurity } from './SettingsSecurity';
 export { default as SettingsTeam } from './SettingsTeam';
+export { default as Trash } from './Trash';

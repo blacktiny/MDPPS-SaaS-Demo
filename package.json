@@ -19,6 +19,7 @@
     "react-app-rewired": "^2.1.6",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-timezone-picker": "^2.0.1",
+    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.2.4",
     "react-phone-number-input": "^3.1.5",

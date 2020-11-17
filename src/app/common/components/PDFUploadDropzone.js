@@ -105,7 +105,12 @@ function PDFUploadDropzone(props) {
         {title && required && <span className="required">&nbsp;*</span>}
       </Header>
 
-      <Content className="MDPPS-dropzone-content">
+      <Content
+        className={
+          'MDPPS-dropzone-content ' +
+          (fileStatus === FILE_STATUS.SELECT ? 'border-solid' : 'border-dashed')
+        }
+      >
         {file?.path ? (
           <div className="row pdf-info-panel">
             <div className="pdf-logo">pdf</div>
@@ -144,7 +149,9 @@ function PDFUploadDropzone(props) {
                   <Trash />
                 </div>
                 <div className="control-btn download-btn"></div>
-                <div className="control-btn upload-btn"></div>
+                <div className="control-btn upload-btn">
+                  <CloudUpload />
+                </div>
               </div>
             )}
           </div>

@@ -62,10 +62,17 @@ const SidebarItemContainer = styled(Link)`
     ${ItemName} {
       color: #000000;
     }
+
+    &:hover {
+      padding-left: 26px;
+      border-left: 4px solid #3be051 !important;
+    }
   }
 
   &:hover {
     background: #f5f8fa;
+    border: none;
+    padding-left: 30px;
 
     svg {
       path {

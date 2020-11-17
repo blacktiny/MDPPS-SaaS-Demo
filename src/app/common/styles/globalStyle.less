@@ -539,14 +539,15 @@ h4 {
 .Select-custom-menu-item {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 10px 10px 10px 20px;
 
   &.divider {
     pointer-events: none;
+    padding: 5px 10px 5px 20px;
 
     .rs-divider {
-      width: calc(100% + 24px);
-      margin: 0 -12px;
+      width: calc(100% + 30px);
+      margin: 0 -10px 0 -20px;
     }
   }
 
@@ -906,10 +907,13 @@ h4 {
   &-content {
     height: 50px;
     border: 1px dashed #b6d0fd;
-    background-color: @input-default-bg;
     padding: 10px 15px;
     border-radius: 3px;
     box-sizing: border-box;
+
+    &.border-solid {
+      border: 1px solid rgba(225, 232, 237, 1);
+    }
 
     .pdf-info-panel {
       display: flex;
@@ -980,12 +984,25 @@ h4 {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 25px;
-          height: 25px;
+          width: 30px;
+          height: 30px;
           border-radius: 3px;
           background-color: rgba(239, 243, 245, 1);
-          margin-left: 10px;
+          margin-left: 5px;
           cursor: pointer;
+
+          &.delete-btn {
+            svg {
+              width: 15px;
+              height: 14px;
+            }
+          }
+
+          &.upload-btn {
+            svg g path {
+              fill: @color-blue;
+            }
+          }
         }
       }
     }

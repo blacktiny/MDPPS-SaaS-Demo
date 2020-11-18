@@ -23,6 +23,7 @@ import {
   SelectCustomPickerItem,
   Button,
   PDFUploadDropzone,
+  PlacesAutoComplete,
 } from '../../common/components';
 import SocialAccountList from './components/SocialAccountList';
 import CompanyOfficialList from './components/CompanyOfficialList';
@@ -363,6 +364,7 @@ function Company() {
                       />
                     </Col>
                   </Row>
+                  <PlacesAutoComplete />
                   <PDFUploadDropzone
                     file={bizLicensePDF}
                     title={'Business License or Tax Certification'}

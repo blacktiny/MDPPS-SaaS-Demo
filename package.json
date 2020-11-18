@@ -20,6 +20,7 @@
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-timezone-picker": "^2.0.1",
     "react-circular-progressbar": "^2.0.3",
+    "react-cool-onclickoutside": "^1.5.8",
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.2.4",
     "react-phone-number-input": "^3.1.5",
@@ -32,6 +33,7 @@
     "redux-thunk": "^2.3.0",
     "rsuite": "^4.8.4",
     "styled-components": "^5.2.1",
+    "use-places-autocomplete": "^1.6.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

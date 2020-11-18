@@ -12,3 +12,4 @@ export { default as TimezonePicker } from './TimezonePicker';
 export { default as Button } from './Button';
 export { default as Modal } from './Modal';
 export { default as PDFUploadDropzone } from './PDFUploadDropzone';
+export { default as PlacesAutoComplete } from './PlacesAutoComplete';
